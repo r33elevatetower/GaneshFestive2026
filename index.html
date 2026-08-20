@@ -6,7 +6,6 @@
 <title>R33 Elevate Tower — Ganesh Utsav 2026</title>
 <meta name="description" content="Official community site for R33 Elevate Tower Ganesh Utsav Mandal — event registrations, contributions, notices and updates.">
 
-<!-- Open Graph / Social Sharing Meta -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="R33 Elevate Tower — Ganesh Utsav 2026">
 <meta property="og:description" content="Official community portal for Ganesh Utsav registrations, contributions, notices, and WhatsApp groups.">
@@ -477,7 +476,6 @@
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
 
-  /* Fully clickable Card */
   .card {
     background: var(--ivory-surface);
     border: 1px solid rgba(56, 14, 29, 0.09);
@@ -503,7 +501,7 @@
   .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
   .card p { margin: 0; color: var(--ink-muted); font-size: 15.5px; line-height: 1.6; }
   .card__action { margin-top: auto; padding-top: 24px; }
-  .card__action .btn { width: 100%; pointer-events: none; } /* Lets the card anchor handle the tap cleanly */
+  .card__action .btn { width: 100%; pointer-events: none; }
 
   /* ---------- NOTICES ---------- */
   .notice {
@@ -691,7 +689,7 @@
     background: rgba(193, 59, 14, 0.2);
   }
 
-  /* ---------- COOKIE BANNER (PREVENTS TOUCH BLOCKING) ---------- */
+  /* ---------- COOKIE BANNER ---------- */
   .cookie-banner {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
     background: var(--maroon-deep); color: var(--ivory-soft);
@@ -732,7 +730,7 @@
         Note For Owners
       </span>
       <span>Join our email group to receive official updates and communications from Amanora township management.</span>
-      <a href="https://forms.gle/7ASfLYKiUacyMgedA" class="topbar__cta" rel="noopener noreferrer">
+      <a href="https://forms.gle/7ASfLYKiUacyMgedA" class="topbar__cta" target="_blank" rel="noopener noreferrer">
         <span>Add Yourself</span>
         <span class="arrow-bounce" aria-hidden="true">→</span>
       </a>
@@ -795,13 +793,13 @@
 <!-- ================= QUICK ACTIONS ================= -->
 <section class="qa" aria-label="Quick Action Buttons">
   <div class="wrap qa__row">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" rel="noopener noreferrer">Register — Sports Games</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="btn btn--gold" id="btnCulturalQA" target="_blank" rel="noopener">Register — Cultural</a>
-    <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--ghost" rel="noopener noreferrer">💬 Join a WhatsApp Group</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Register — Sports Games</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="btn btn--gold" id="btnCulturalQA" target="_blank" rel="noopener noreferrer">Register — Cultural</a>
+    <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">💬 Join a WhatsApp Group</a>
   </div>
 </section>
 
-<!-- ================= WHATSAPP GROUPS (FULLY CLICKABLE CARDS) ================= -->
+<!-- ================= WHATSAPP GROUPS ================= -->
 <section class="section" id="whatsapp-groups">
   <div class="wrap">
     <div class="section__head" id="direct-updates">
@@ -812,7 +810,7 @@
 
     <div class="grid-3">
       <!-- Sports Games -->
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="card" rel="noopener noreferrer">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="card" target="_blank" rel="noopener noreferrer">
         <div class="card__icon" aria-hidden="true">🏏</div>
         <h3>Sports Games</h3>
         <p>There's no separate Sports WhatsApp group — register directly, and sports updates will be broadcast to all participants.</p>
@@ -823,18 +821,18 @@
       </a>
 
       <!-- Cultural Group -->
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="card" target="_blank" rel="noopener">
-  <div class="card__icon" aria-hidden="true">🎭</div>
-  <h3>Cultural Group</h3>
-  <p>Rehearsal timings, performance order, slot schedules, and cultural evening updates.</p>
-  <p style="margin-top:8px; font-weight:600; font-size:14px; color:var(--maroon);">Coordinator: Ruchi Kamra &amp; Jaya Udawat</p>
-  <div class="card__action">
-    <span class="btn btn--ghost">Register for Cultural</span>
-  </div>
-</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="card" target="_blank" rel="noopener noreferrer">
+        <div class="card__icon" aria-hidden="true">🎭</div>
+        <h3>Cultural Group</h3>
+        <p>Rehearsal timings, performance order, slot schedules, and cultural evening updates.</p>
+        <p style="margin-top:8px; font-weight:600; font-size:14px; color:var(--maroon);">Coordinator: Ruchi Kamra &amp; Jaya Udawat</p>
+        <div class="card__action">
+          <span class="btn btn--ghost">Register for Cultural</span>
+        </div>
+      </a>
 
       <!-- Tabla Class -->
-      <a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" class="card" rel="noopener noreferrer">
+      <a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" class="card" target="_blank" rel="noopener noreferrer">
         <div class="card__icon" aria-hidden="true">🥁</div>
         <h3>Tabla Class</h3>
         <p>Interested in learning Tabla for the festival? Join for class schedules and practice sessions.</p>
@@ -844,7 +842,7 @@
       </a>
 
       <!-- Lezim Practice -->
-      <a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" class="card" rel="noopener noreferrer">
+      <a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" class="card" target="_blank" rel="noopener noreferrer">
         <div class="card__icon" aria-hidden="true">💃</div>
         <h3>Lezim</h3>
         <p>Traditional Lezim practice sessions ahead of the procession — join for timings and updates.</p>
@@ -855,7 +853,7 @@
       </a>
 
       <!-- Art & Drawing -->
-      <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" class="card" rel="noopener noreferrer">
+      <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" class="card" target="_blank" rel="noopener noreferrer">
         <div class="card__icon" aria-hidden="true">🎨</div>
         <h3>Art &amp; Drawing</h3>
         <p>Art and drawing activity group — session updates, themes, and materials needed.</p>
@@ -866,7 +864,7 @@
       </a>
 
       <!-- Volunteers Team -->
-      <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="card" rel="noopener noreferrer">
+      <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="card" target="_blank" rel="noopener noreferrer">
         <div class="card__icon" aria-hidden="true">🤝</div>
         <h3>Volunteers Hub</h3>
         <p>Coordinate decoration, prasad distribution, crowd management, and daily pooja duties.</p>
@@ -908,7 +906,7 @@
     </div>
 
     <div style="text-align:center; margin-top:40px;">
-      <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--outline" rel="noopener noreferrer">Join the Volunteer Team</a>
+      <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Join the Volunteer Team</a>
     </div>
   </div>
 </section>
@@ -929,9 +927,7 @@
         <li>
           <div>
             <h4>Share your details</h4>
-            <p>✅ Payment Screenshot
-✅ Flat No. & Name
-✅ Number of family members attending Mahaprasad details to 9881322000.</p>
+            <p>Send your payment screenshot, name, and flat number to the committee contact number below.</p>
           </div>
         </li>
         <li>
@@ -987,7 +983,7 @@
   <div class="fab-menu" id="fabMenu" role="menu" aria-label="WhatsApp Group Links">
     <div class="fab-menu__header">Select a Group to Join</div>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
       <span class="fab-menu__icon">🎭</span>
       <div>
         <strong>Cultural Group</strong>
@@ -995,7 +991,7 @@
       </div>
     </a>
 
-    <a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+    <a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
       <span class="fab-menu__icon">🥁</span>
       <div>
         <strong>Tabla Class</strong>
@@ -1003,7 +999,7 @@
       </div>
     </a>
 
-    <a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+    <a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
       <span class="fab-menu__icon">💃</span>
       <div>
         <strong>Lezim Practice</strong>
@@ -1011,7 +1007,7 @@
       </div>
     </a>
 
-    <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+    <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
       <span class="fab-menu__icon">🎨</span>
       <div>
         <strong>Art &amp; Drawing</strong>
@@ -1019,7 +1015,7 @@
       </div>
     </a>
 
-    <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+    <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
       <span class="fab-menu__icon">🤝</span>
       <div>
         <strong>Volunteers Team</strong>
@@ -1050,17 +1046,6 @@
 </div>
 
 <script>
-// Force-open Google Forms cleanly across all mobile browsers
-document.querySelectorAll('a[href*="docs.google.com/forms"]').forEach(formLink => {
-  formLink.addEventListener('click', (e) => {
-    e.stopPropagation();
-    const targetUrl = formLink.getAttribute('href').trim();
-    if (targetUrl) {
-      window.open(targetUrl, '_blank', 'noopener,noreferrer');
-    }
-  });
-});
-
   // Mobile Navigation Toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
@@ -1106,16 +1091,18 @@ document.querySelectorAll('a[href*="docs.google.com/forms"]').forEach(formLink =
 
     fabMenu.querySelectorAll('a').forEach(item => {
       item.addEventListener('click', (e) => {
-        fabContainer.classList.remove('is-open');
-        fabToggle.setAttribute('aria-expanded', 'false');
-
         const href = item.getAttribute('href');
         if (href && href.startsWith('#')) {
           e.preventDefault();
+          fabContainer.classList.remove('is-open');
+          fabToggle.setAttribute('aria-expanded', 'false');
           const target = document.querySelector(href);
           if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
+        } else {
+          fabContainer.classList.remove('is-open');
+          fabToggle.setAttribute('aria-expanded', 'false');
         }
       });
     });
