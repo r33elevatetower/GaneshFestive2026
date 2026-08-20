@@ -5,327 +5,669 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>R33 Elevate Tower — Ganesh Utsav 2026</title>
 <meta name="description" content="Official community site for R33 Elevate Tower Ganesh Utsav Mandal — event registrations, contributions, notices and updates.">
+
+<!-- Open Graph / Social Sharing Meta -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="R33 Elevate Tower — Ganesh Utsav 2026">
+<meta property="og:description" content="Official community portal for Ganesh Utsav registrations, contributions, notices, and WhatsApp groups.">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Rajdhani:wght@500;600;700&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Mukta:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
 <style>
-  :root{
-    --ivory:#FBF1DE;
-    --ivory-soft:#F3E4C6;
-    --maroon:#3A1220;
-    --maroon-deep:#260B15;
-    --vermilion:#C1440E;
-    --gold:#C7962E;
-    --gold-light:#E9CE84;
-    --green:#35563F;
-    --ink:#2B1B1F;
-    --font-display:'Yatra One', cursive;
-    --font-body:'Mukta', sans-serif;
-    --font-data:'Rajdhani', sans-serif;
-    --max:1120px;
+  :root {
+    --ivory: #FBF4E8;
+    --ivory-surface: #FFFDF9;
+    --ivory-soft: #F3E4C6;
+    --maroon: #380E1D;
+    --maroon-deep: #200710;
+    --maroon-glass: rgba(40, 10, 21, 0.94);
+    --vermilion: #C13B0E;
+    --vermilion-glow: rgba(193, 59, 14, 0.35);
+    --gold: #C99728;
+    --gold-bright: #F5D374;
+    --gold-gradient: linear-gradient(135deg, #D4AF37 0%, #FFF3B0 50%, #AA771C 100%);
+    --green: #295738;
+    --green-glow: rgba(41, 87, 56, 0.35);
+    --ink: #26161A;
+    --ink-muted: #574349;
+    --font-display: 'Cinzel', Georgia, serif;
+    --font-body: 'Mukta', sans-serif;
+    --font-data: 'Rajdhani', sans-serif;
+    --max: 1160px;
+    --radius-sm: 10px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --shadow-soft: 0 4px 20px rgba(56, 14, 29, 0.07);
+    --shadow-card: 0 10px 30px rgba(56, 14, 29, 0.09);
+    --shadow-lift: 0 16px 36px rgba(56, 14, 29, 0.16);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
   }
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--ivory);
-    color:var(--ink);
-    font-family:var(--font-body);
-    font-size:17px;
-    line-height:1.55;
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background-image: radial-gradient(#d6c29e 0.6px, transparent 0.6px);
+    background-size: 24px 24px;
   }
-  img{max-width:100%;display:block;}
-  a{color:inherit;}
-  h1,h2,h3{font-family:var(--font-display);font-weight:400;margin:0 0 .4em;color:var(--maroon);}
-  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
-  .eyebrow{
-    font-family:var(--font-data);
-    font-weight:600;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    font-size:13px;
-    color:var(--vermilion);
+
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { 
+    font-family: var(--font-display); 
+    font-weight: 700; 
+    letter-spacing: 0.02em;
+    margin: 0 0 .35em; 
+    color: var(--maroon); 
   }
-  :focus-visible{outline:3px solid var(--vermilion);outline-offset:3px;}
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:.001ms !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+  
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-data);
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: var(--vermilion);
+    margin-bottom: 8px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: "❖";
+    font-size: 10px;
+    color: var(--gold);
+  }
+
+  :focus-visible { outline: 3px solid var(--vermilion); outline-offset: 3px; }
+
+  /* Smooth scroll offsets to clear the sticky navbar */
+  #whatsapp-groups, #direct-updates, #events, #about, #notices, #contact, #contribute {
+    scroll-margin-top: 90px;
   }
 
   /* ---------- TOP BANNER ---------- */
-  .topbar{
-    background:var(--vermilion);color:var(--ivory);
-    padding:11px 16px;text-align:center;
-    animation:topbar-flash 1.4s ease-in-out infinite;
+  .topbar {
+    background: linear-gradient(90deg, #A82E05 0%, #C13B0E 50%, #A82E05 100%);
+    color: var(--ivory);
+    padding: 10px 16px;
+    position: relative;
+    z-index: 60;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   }
-  @keyframes topbar-flash{
-    0%,100%{background:var(--vermilion);}
-    50%{background:var(--gold);color:var(--maroon-deep);}
+  .topbar__inner {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    flex-wrap: wrap; text-align: center; padding-right: 32px;
   }
-  .topbar__inner{
-    display:flex;align-items:center;justify-content:center;gap:14px;
-    flex-wrap:wrap;position:relative;
+  .topbar__text { margin: 0; font-size: 14.5px; font-weight: 600; }
+  .topbar__badge {
+    background: var(--gold);
+    color: var(--maroon-deep);
+    padding: 2px 10px;
+    border-radius: 99px;
+    font-family: var(--font-data);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-right: 6px;
   }
-  .topbar__text{margin:0;font-size:14.5px;font-weight:700;}
-  .topbar__text a{color:inherit;text-decoration:underline;margin-left:6px;}
-  .topbar__close{
-    position:absolute;right:0;top:50%;transform:translateY(-50%);
-    background:none;border:none;color:inherit;font-size:17px;cursor:pointer;
-    padding:4px 8px;line-height:1;
+  .topbar__link {
+    color: var(--gold-bright);
+    text-decoration: underline;
+    font-weight: 700;
+    margin-left: 6px;
+    transition: color 0.2s;
   }
-  @media (max-width:640px){
-    .topbar__inner{flex-direction:column;gap:6px;padding-right:0;}
-    .topbar__close{position:static;transform:none;}
+  .topbar__link:hover { color: #ffffff; }
+  .topbar__close {
+    position: absolute; right: 16px; top: 50%; transform: translateY(-50%);
+    background: rgba(255,255,255,0.1); border: none; color: inherit;
+    font-size: 14px; cursor: pointer; width: 28px; height: 28px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .topbar__close:hover { background: rgba(255,255,255,0.25); }
+
+  @media (max-width: 640px) {
+    .topbar__inner { padding-right: 0; }
+    .topbar__close { position: static; transform: none; margin-top: 4px; }
   }
 
   /* ---------- NAV ---------- */
-  .nav{
-    position:sticky;top:0;z-index:50;
-    background:var(--maroon);
-    border-bottom:3px solid var(--gold);
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    background: var(--maroon-glass);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 2px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
   }
-  .nav__bar{
-    max-width:var(--max);margin:0 auto;padding:14px 24px;
-    display:flex;align-items:center;justify-content:space-between;
+  .nav__bar {
+    max-width: var(--max); margin: 0 auto; padding: 12px 24px;
+    display: flex; align-items: center; justify-content: space-between;
   }
-  .nav__brand{
-    display:flex;align-items:center;gap:10px;
-    color:var(--ivory);text-decoration:none;
-    font-family:var(--font-display);font-size:20px;
+  .nav__brand {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--ivory); font-family: var(--font-display); font-size: 20px; font-weight: 800;
+    letter-spacing: 0.05em;
   }
-  .nav__brand span{color:var(--gold-light);}
-  .nav__links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
-  .nav__links a{
-    color:var(--ivory-soft);text-decoration:none;font-weight:600;font-size:15px;
-    padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .2s, color .2s;
+  .nav__brand-icon {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: radial-gradient(circle, var(--gold) 0%, #8c600f 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   }
-  .nav__links a:hover{border-color:var(--gold);color:var(--gold-light);}
-  .nav__toggle{
-    display:none;background:none;border:2px solid var(--gold);border-radius:6px;
-    color:var(--ivory);width:40px;height:36px;font-size:20px;cursor:pointer;
+  .nav__brand span { color: var(--gold-bright); }
+  .nav__links { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; }
+  .nav__links a {
+    color: var(--ivory-soft); font-weight: 600; font-size: 15.5px;
+    padding: 6px 4px; border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
   }
-  @media (max-width:840px){
-    .nav__links{
-      position:absolute;top:100%;left:0;right:0;background:var(--maroon);
-      flex-direction:column;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;
-      border-bottom:3px solid var(--gold);
+  .nav__links a:hover, .nav__links a:focus { border-color: var(--gold-bright); color: #fff; }
+  .nav__toggle {
+    display: none; background: rgba(255,255,255,0.08); border: 1.5px solid var(--gold);
+    border-radius: 8px; color: var(--ivory); width: 42px; height: 38px; font-size: 22px; cursor: pointer;
+  }
+
+  @media (max-width: 860px) {
+    .nav__links {
+      position: absolute; top: 100%; left: 0; right: 0; background: var(--maroon);
+      flex-direction: column; max-height: 0; overflow: hidden;
+      transition: max-height 0.4s var(--ease-smooth); border-bottom: 3px solid var(--gold);
     }
-    .nav__links.is-open{max-height:400px;}
-    .nav__links a{display:block;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.08);}
-    .nav__toggle{display:block;}
+    .nav__links.is-open { max-height: 480px; box-shadow: 0 16px 30px rgba(0,0,0,0.3); }
+    .nav__links a { display: block; padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .nav__toggle { display: block; }
   }
 
   /* ---------- HERO ---------- */
-  .hero{
-    background:radial-gradient(ellipse at top, var(--maroon) 0%, var(--maroon-deep) 75%);
-    color:var(--ivory);
-    padding:64px 0 90px;
-    text-align:center;
-    position:relative;
-    overflow:hidden;
+  .hero {
+    background: radial-gradient(ellipse at 50% 20%, #4f152a 0%, var(--maroon-deep) 85%);
+    color: var(--ivory);
+    padding: 80px 0 110px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
   }
-  .hero__garland{display:flex;justify-content:center;gap:4px;margin-bottom:22px;}
-  .hero__garland svg{opacity:.9;}
-  .hero .eyebrow{color:var(--gold-light);}
-  .hero h1{
-    color:var(--ivory);
-    font-size:clamp(40px,7vw,68px);
-    margin:10px 0 6px;
-    text-shadow:0 2px 0 rgba(0,0,0,.25);
+  .hero::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at 50% 40%, rgba(201, 151, 40, 0.15), transparent 70%);
+    pointer-events: none;
   }
-  .hero__sub{
-    max-width:620px;margin:0 auto 34px;
-    color:var(--ivory-soft);font-size:18px;
+  .hero__garland { display: flex; justify-content: center; margin-bottom: 18px; }
+  .hero .eyebrow { color: var(--gold-bright); }
+  .hero .eyebrow::before, .hero .eyebrow::after { color: var(--gold-bright); }
+  
+  .hero h1 {
+    color: #FFFDF9;
+    font-size: clamp(36px, 6.5vw, 68px);
+    font-weight: 800;
+    letter-spacing: 0.03em;
+    margin: 8px 0 16px;
+    line-height: 1.2;
+    text-shadow: 0 4px 18px rgba(0,0,0,0.45);
   }
-  .hero__divider{
-    position:absolute;bottom:-2px;left:0;width:100%;line-height:0;
+  .hero__sub {
+    max-width: 680px; margin: 0 auto 36px;
+    color: var(--ivory-soft); font-size: 18.5px; line-height: 1.65;
+  }
+
+  /* ---------- FLASHY 'ALL IN ONE PLACE' ANIMATION ---------- */
+  .flash-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+    padding: 3px 12px;
+    margin: 2px 2px;
+    border-radius: 999px;
+    background: rgba(40, 10, 21, 0.85);
+    border: 1.5px solid rgba(245, 211, 116, 0.7);
+    box-shadow: 0 0 20px rgba(201, 151, 40, 0.4), inset 0 0 12px rgba(245, 211, 116, 0.2);
+    vertical-align: baseline;
+    white-space: nowrap;
+    animation: pillPulse 2.8s ease-in-out infinite;
+  }
+
+  .flash-text {
+    font-family: var(--font-data);
+    font-weight: 800;
+    font-size: 1.05em;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: linear-gradient(
+      115deg,
+      #F5D374 0%,
+      #FFFFFF 25%,
+      #E5A93C 45%,
+      #FFF6D1 55%,
+      #C99728 75%,
+      #F5D374 100%
+    );
+    background-size: 250% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: goldShimmer 3s linear infinite;
+    display: inline-block;
+  }
+
+  .sparkle-icon {
+    display: inline-block;
+    color: var(--gold-bright);
+    font-size: 14px;
+    animation: sparkleTwinkle 1.8s ease-in-out infinite alternate;
+  }
+
+  @keyframes goldShimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  @keyframes pillPulse {
+    0%, 100% {
+      border-color: rgba(245, 211, 116, 0.6);
+      box-shadow: 0 0 16px rgba(201, 151, 40, 0.35), inset 0 0 8px rgba(245, 211, 116, 0.15);
+      transform: scale(1);
+    }
+    50% {
+      border-color: rgba(255, 246, 209, 1);
+      box-shadow: 0 0 28px rgba(245, 211, 116, 0.8), inset 0 0 16px rgba(245, 211, 116, 0.35);
+      transform: scale(1.03);
+    }
+  }
+
+  @keyframes sparkleTwinkle {
+    0% { transform: rotate(0deg) scale(0.8); opacity: 0.6; }
+    100% { transform: rotate(45deg) scale(1.2); opacity: 1; filter: drop-shadow(0 0 4px #F5D374); }
+  }
+
+  .hero__divider {
+    position: absolute; bottom: -1px; left: 0; width: 100%; line-height: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 -4px 6px rgba(0,0,0,0.1));
   }
 
   /* ---------- QUICK ACTIONS ---------- */
-  .qa{
-    background:var(--ivory-soft);
-    padding:28px 0;
-    border-bottom:1px solid rgba(58,18,32,.1);
+  .qa {
+    background: var(--ivory-surface);
+    padding: 26px 0;
+    border-bottom: 1px solid rgba(56, 14, 29, 0.08);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    position: relative;
+    z-index: 15;
   }
-  .qa__row{
-    display:flex;flex-wrap:wrap;gap:14px;justify-content:center;
+  .qa__row {
+    display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
   }
-  .btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:13px 22px;border-radius:999px;
-    font-family:var(--font-body);font-weight:600;font-size:15px;
-    text-decoration:none;border:2px solid transparent;cursor:pointer;
-    transition:transform .15s ease, box-shadow .15s ease;
-  }
-  .btn:hover{transform:translateY(-2px);}
-  .btn--solid{background:var(--vermilion);color:var(--ivory);}
-  .btn--solid:hover{box-shadow:0 6px 16px rgba(193,68,14,.35);}
-  .btn--gold{background:var(--gold);color:var(--maroon-deep);}
-  .btn--gold:hover{box-shadow:0 6px 16px rgba(199,150,46,.4);}
-  .btn--outline{background:transparent;border-color:var(--maroon);color:var(--maroon);}
-  .btn--outline:hover{background:var(--maroon);color:var(--ivory);}
-  .btn--ghost{background:var(--green);color:var(--ivory);}
-  .btn--ghost:hover{box-shadow:0 6px 16px rgba(53,86,63,.35);}
-  .btn--disabled{opacity:.55;cursor:not-allowed;}
-  .btn--disabled:hover{transform:none;box-shadow:none;}
 
-  /* ---------- SECTION SHELL ---------- */
-  .section{padding:72px 0;}
-  .section__head{text-align:center;max-width:640px;margin:0 auto 44px;}
-  .section--alt{background:var(--ivory-soft);}
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    padding: 12px 24px; border-radius: 999px; font-family: var(--font-body);
+    font-weight: 700; font-size: 15.5px; border: 2px solid transparent;
+    cursor: pointer; transition: transform 0.25s var(--ease-bounce), box-shadow 0.25s var(--ease-smooth), background 0.2s;
+    text-align: center;
+  }
+  .btn:hover { transform: translateY(-3px); }
+  .btn:active { transform: translateY(-1px); }
 
-  /* ---------- ABOUT ---------- */
-  .about__grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
-  }
-  .card{
-    background:var(--ivory);
-    border:1px solid rgba(58,18,32,.12);
-    border-radius:14px;padding:28px 24px;
-  }
-  .card__icon{
-    width:44px;height:44px;border-radius:10px;
-    background:var(--maroon);color:var(--gold-light);
-    display:flex;align-items:center;justify-content:center;
-    font-family:var(--font-display);font-size:20px;margin-bottom:16px;
-  }
-  .card h3{font-size:21px;margin-bottom:8px;}
-  .card p{margin:0;color:#4a3a3f;font-size:15.5px;}
-  .about__cta{text-align:center;margin-top:38px;}
+  .btn--solid { background: var(--vermilion); color: #fff; box-shadow: 0 4px 14px var(--vermilion-glow); }
+  .btn--solid:hover { background: #A82E05; box-shadow: 0 8px 22px var(--vermilion-glow); color: #fff; }
+  
+  .btn--gold { background: var(--gold-gradient); color: var(--maroon-deep); font-weight: 800; box-shadow: 0 4px 14px rgba(201, 151, 40, 0.35); }
+  .btn--gold:hover { box-shadow: 0 8px 24px rgba(201, 151, 40, 0.5); filter: brightness(1.05); }
 
-  /* ---------- CONTRIBUTE STEPS ---------- */
-  .steps{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
-  .steps__list{list-style:none;margin:0;padding:0;counter-reset:step;}
-  .steps__list li{
-    counter-increment:step;
-    display:flex;gap:16px;margin-bottom:22px;
+  .btn--outline { background: transparent; border-color: var(--maroon); color: var(--maroon); }
+  .btn--outline:hover { background: var(--maroon); color: var(--ivory); }
+
+  .btn--ghost { background: var(--green); color: #fff; box-shadow: 0 4px 14px var(--green-glow); }
+  .btn--ghost:hover { background: #1f432b; box-shadow: 0 8px 22px var(--green-glow); }
+
+  /* ---------- SECTIONS ---------- */
+  .section { padding: 84px 0; }
+  .section__head { text-align: center; max-width: 680px; margin: 0 auto 52px; }
+  .section__head h2 { font-size: clamp(28px, 3.8vw, 38px); font-weight: 800; }
+  .section__head p { margin: 0; color: var(--ink-muted); font-size: 16.5px; }
+  .section--alt { background: var(--ivory-soft); border-top: 1px solid rgba(56, 14, 29, 0.06); border-bottom: 1px solid rgba(56, 14, 29, 0.06); }
+
+  /* ---------- GRIDS & CARDS ---------- */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+
+  .card {
+    background: var(--ivory-surface);
+    border: 1px solid rgba(56, 14, 29, 0.09);
+    border-radius: var(--radius-md);
+    padding: 30px 26px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth), border-color 0.3s;
   }
-  .steps__list li::before{
-    content:counter(step);
-    flex:none;width:36px;height:36px;border-radius:50%;
-    background:var(--vermilion);color:var(--ivory);
-    display:flex;align-items:center;justify-content:center;
-    font-family:var(--font-data);font-weight:700;font-size:16px;
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lift);
+    border-color: rgba(201, 151, 40, 0.4);
   }
-  .steps__list h4{margin:0 0 4px;font-family:var(--font-body);font-size:16.5px;font-weight:700;color:var(--maroon);}
-  .steps__list p{margin:0;color:#4a3a3f;font-size:15px;}
-  .qr-box{
-    background:var(--ivory);border:2px solid var(--gold);border-radius:16px;
-    padding:34px;text-align:center;color:#7a6a58;
+  .card__icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--maroon); color: var(--gold-bright);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px; margin-bottom: 18px; flex-shrink: 0;
+    box-shadow: 0 4px 10px rgba(56, 14, 29, 0.2);
   }
-  .qr-box__mark{
-    width:150px;height:150px;margin:0 auto 16px;
-    border-radius:10px;border:2px solid var(--maroon);
-    display:flex;align-items:center;justify-content:center;
-    font-family:var(--font-data);font-size:13px;color:var(--maroon);
-    background:
-      repeating-linear-gradient(0deg, var(--maroon) 0 6px, transparent 6px 12px) 0 0/100% 6px no-repeat,
-      repeating-linear-gradient(90deg, var(--maroon) 0 6px, transparent 6px 12px) 0 0/6px 100% no-repeat,
-      repeating-linear-gradient(0deg, var(--maroon) 0 6px, transparent 6px 12px) 100% 0/6px 100% no-repeat,
-      repeating-linear-gradient(90deg, var(--maroon) 0 6px, transparent 6px 12px) 0 100%/100% 6px no-repeat;
-  }
+  .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+  .card p { margin: 0; color: var(--ink-muted); font-size: 15.5px; line-height: 1.6; }
+  .card__action { margin-top: auto; padding-top: 24px; }
+  .card__action .btn { width: 100%; }
 
   /* ---------- EVENTS ---------- */
-  .events__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-  .event{
-    background:var(--maroon);color:var(--ivory);
-    border-radius:14px;padding:28px 24px;
-    display:flex;flex-direction:column;gap:14px;
+  .event-card {
+    background: linear-gradient(170deg, var(--maroon) 0%, var(--maroon-deep) 100%);
+    color: var(--ivory);
+    border-radius: var(--radius-md);
+    padding: 32px 26px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 12px 32px rgba(32, 7, 16, 0.25);
+    border: 1px solid rgba(245, 211, 116, 0.15);
+    transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
   }
-  .event--open .event__tag{background:var(--green);}
-  .event--soon .event__tag{background:var(--gold);color:var(--maroon-deep);}
-  .event__tag{
-    align-self:flex-start;
-    font-family:var(--font-data);font-size:12px;font-weight:700;
-    letter-spacing:.08em;text-transform:uppercase;
-    padding:5px 12px;border-radius:99px;color:var(--ivory);
+  .event-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 40px rgba(32, 7, 16, 0.35);
   }
-  .event h3{color:var(--gold-light);font-size:22px;margin-bottom:2px;}
-  .event p{margin:0;color:var(--ivory-soft);font-size:15px;flex-grow:1;}
+  .event-card__tag {
+    align-self: flex-start;
+    font-family: var(--font-data); font-size: 11.5px; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 99px; margin-bottom: 16px;
+    background: var(--green); color: #fff;
+    box-shadow: 0 2px 8px var(--green-glow);
+  }
+  .event-card h3 { color: var(--gold-bright); font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .event-card p { margin: 0 0 24px; color: var(--ivory-soft); font-size: 15.5px; line-height: 1.6; }
+  .event-card .btn { margin-top: auto; width: 100%; }
+
+  /* ---------- STEPS & CONTRIBUTE ---------- */
+  .steps { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
+  .steps__list { list-style: none; margin: 0; padding: 0; counter-reset: step-counter; }
+  .steps__list li {
+    counter-increment: step-counter;
+    display: flex; gap: 18px; margin-bottom: 24px;
+  }
+  .steps__list li::before {
+    content: counter(step-counter);
+    flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--vermilion) 0%, #9e2a05 100%);
+    color: #fff; display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-data); font-weight: 700; font-size: 17px;
+    box-shadow: 0 4px 12px var(--vermilion-glow);
+  }
+  .steps__list h4 { margin: 0 0 4px; font-size: 17px; font-weight: 700; color: var(--maroon); font-family: var(--font-body); }
+  .steps__list p { margin: 0; color: var(--ink-muted); font-size: 15.5px; }
+
+  .qr-box {
+    background: var(--ivory-surface);
+    border: 2px solid var(--gold);
+    border-radius: var(--radius-lg);
+    padding: 34px 28px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+  }
+  .qr-box img {
+    width: 190px; height: 190px; object-fit: contain; background: #fff;
+    border-radius: 12px; border: 2px solid var(--maroon); padding: 8px;
+    margin: 0 auto 18px; box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+  }
+  .qr-box p { margin: 0; color: var(--ink-muted); font-size: 14.5px; font-weight: 500; }
 
   /* ---------- NOTICES ---------- */
-  .notices__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
-  .notice{
-    background:var(--ivory);border-left:5px solid var(--vermilion);
-    border-radius:0 10px 10px 0;padding:18px 22px;
-    box-shadow:0 2px 8px rgba(58,18,32,.06);
+  .notice {
+    background: var(--ivory-surface);
+    border-left: 5px solid var(--vermilion);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 22px 24px;
+    box-shadow: var(--shadow-soft);
+    border-top: 1px solid rgba(56, 14, 29, 0.05);
+    border-right: 1px solid rgba(56, 14, 29, 0.05);
+    border-bottom: 1px solid rgba(56, 14, 29, 0.05);
+    transition: transform 0.25s var(--ease-smooth);
   }
-  .notice__date{
-    font-family:var(--font-data);font-size:12.5px;font-weight:600;
-    color:var(--vermilion);letter-spacing:.05em;text-transform:uppercase;
+  .notice:hover { transform: translateX(4px); }
+  .notice__date {
+    font-family: var(--font-data); font-size: 12px; font-weight: 700;
+    color: var(--vermilion); letter-spacing: 0.08em; text-transform: uppercase;
   }
-  .notice h4{margin:6px 0 4px;font-size:17px;color:var(--maroon);}
-  .notice p{margin:0;color:#4a3a3f;font-size:14.5px;}
+  .notice h4 { margin: 6px 0 6px; font-size: 18px; font-weight: 700; color: var(--maroon); }
+  .notice p { margin: 0; color: var(--ink-muted); font-size: 15px; }
 
-  /* ---------- CONTACT ---------- */
-  .contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
-  .contact__list{list-style:none;padding:0;margin:0;}
-  .contact__list li{display:flex;gap:14px;margin-bottom:18px;font-size:15.5px;}
-  .contact__list b{display:block;font-size:13px;color:var(--vermilion);text-transform:uppercase;letter-spacing:.06em;}
-  .social-row{display:flex;gap:12px;margin-top:18px;}
-  .social-row a{
-    width:40px;height:40px;border-radius:50%;background:var(--maroon);color:var(--ivory);
-    display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:15px;
+  /* ---------- CONTACT & SOCIAL ---------- */
+  .contact-list { list-style: none; padding: 0; margin: 0 0 28px; }
+  .contact-list li { margin-bottom: 20px; font-size: 16px; }
+  .contact-list b {
+    display: block; font-size: 12.5px; color: var(--vermilion);
+    font-family: var(--font-data); font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 2px;
   }
+  .social-row { display: flex; gap: 12px; }
+  .social-row a {
+    width: 44px; height: 44px; border-radius: 50%; background: var(--maroon);
+    color: var(--ivory); display: flex; align-items: center; justify-content: center;
+    font-weight: 700; font-size: 14.5px; transition: transform 0.25s var(--ease-bounce), background 0.2s;
+    box-shadow: 0 4px 10px rgba(56, 14, 29, 0.2);
+  }
+  .social-row a:hover { background: var(--vermilion); transform: translateY(-3px); }
 
   /* ---------- FOOTER ---------- */
-  .footer{
-    background:var(--maroon-deep);color:var(--ivory-soft);
-    padding:36px 0;text-align:center;font-size:14px;
+  .footer {
+    background: var(--maroon-deep);
+    color: var(--ivory-soft);
+    padding: 44px 0;
+    text-align: center;
+    font-size: 15px;
+    border-top: 3px solid var(--gold);
   }
-  .footer strong{color:var(--gold-light);}
+  .footer strong { color: var(--gold-bright); }
+  .footer p { margin: 4px 0; }
 
-  /* ---------- WHATSAPP FAB ---------- */
-  .fab{
-    position:fixed;right:20px;bottom:20px;z-index:60;
-    background:var(--green);color:var(--ivory);
-    padding:13px 18px;border-radius:999px;text-decoration:none;
-    display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;
-    box-shadow:0 8px 22px rgba(0,0,0,.25);
-    transition:bottom .3s ease;
+  /* ---------- FLOATING GROUP NAVIGATION ---------- */
+  .fab-container {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 55;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    transition: bottom 0.3s var(--ease-smooth);
   }
 
-  /* ---------- WHATSAPP GROUPS ---------- */
-  .wa__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
-  @media (max-width:900px){.wa__grid{grid-template-columns:1fr;}}
+  .fab {
+    background: var(--green);
+    color: #fff;
+    padding: 13px 22px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.25s var(--ease-bounce), background 0.2s;
+  }
+
+  .fab:hover {
+    background: #1f432b;
+    transform: translateY(-2px);
+  }
+
+  .fab__arrow {
+    font-size: 11px;
+    transition: transform 0.3s ease;
+  }
+
+  .fab-container.is-open .fab__arrow {
+    transform: rotate(180deg);
+  }
+
+  .fab-menu {
+    width: 290px;
+    background: var(--maroon-deep);
+    border: 2px solid var(--gold);
+    border-radius: 18px;
+    padding: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.95);
+    transform-origin: bottom right;
+    transition: opacity 0.25s ease, transform 0.25s var(--ease-bounce), visibility 0.25s;
+  }
+
+  .fab-container.is-open .fab-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+
+  .fab-menu__header {
+    font-family: var(--font-data);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--gold-bright);
+    padding: 4px 8px 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+  }
+
+  .fab-menu__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--ivory);
+    text-decoration: none;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .fab-menu__item:hover {
+    background: rgba(201, 151, 40, 0.25);
+    transform: translateX(-3px);
+  }
+
+  .fab-menu__item strong {
+    display: block;
+    font-size: 14.5px;
+    color: var(--ivory);
+    line-height: 1.2;
+  }
+
+  .fab-menu__item small {
+    display: block;
+    font-size: 11.5px;
+    color: var(--ivory-soft);
+    opacity: 0.8;
+  }
+
+  .fab-menu__icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+
+  .fab-menu__item--viewall {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 4px;
+    background: rgba(193, 59, 14, 0.2);
+  }
+
+  .fab-menu__item--viewall:hover {
+    background: var(--vermilion);
+  }
 
   /* ---------- COOKIE BANNER ---------- */
-  .cookie-banner{
-    position:fixed;left:0;right:0;bottom:0;z-index:70;
-    background:var(--maroon-deep);color:var(--ivory-soft);
-    padding:16px 20px;display:flex;gap:16px;align-items:center;justify-content:center;
-    flex-wrap:wrap;font-size:13.5px;text-align:center;
-    transform:translateY(100%);transition:transform .4s ease;
-    border-top:2px solid var(--gold);
+  .cookie-banner {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
+    background: var(--maroon-deep); color: var(--ivory-soft);
+    padding: 16px 24px; display: flex; gap: 16px; align-items: center; justify-content: center;
+    flex-wrap: wrap; font-size: 14.5px; text-align: center; border-top: 2px solid var(--gold);
+    transform: translateY(100%); transition: transform 0.4s var(--ease-smooth);
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
   }
-  .cookie-banner.is-visible{transform:translateY(0);}
+  .cookie-banner.is-visible { transform: translateY(0); }
 
-  @media (max-width:900px){
-    .about__grid,.events__grid,.notices__grid{grid-template-columns:1fr;}
-    .steps{grid-template-columns:1fr;}
-    .contact__grid{grid-template-columns:1fr;}
-    .board__stats{grid-template-columns:1fr;gap:22px;}
+  /* ---------- RESPONSIVE BREAKPOINTS ---------- */
+  @media (max-width: 960px) {
+    .grid-3 { grid-template-columns: repeat(2, 1fr); }
+    .steps { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 680px) {
+    .grid-3, .grid-2 { grid-template-columns: 1fr; }
+    .section { padding: 60px 0; }
+    .hero { padding: 50px 0 85px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 </style>
 </head>
 <body>
 
 <!-- ================= TOP BANNER ================= -->
-<div class="topbar" id="topBar">
+<aside class="topbar" id="topBar" aria-label="Society Notice">
   <div class="wrap topbar__inner">
-    <p class="topbar__text">📧 Owners — please add yourself to our Group Distribution List Email.<a href="https://forms.gle/7ASfLYKiUacyMgedA" target="_blank" rel="noopener">Add Yourself →</a></p>
-    <button class="topbar__close" id="topBarClose" aria-label="Dismiss this notice">✕</button>
+    <p class="topbar__text">
+      <span class="topbar__badge">Notice</span>
+      For Owners Only — please add yourself to our Group Distribution List Email.
+      <a href="https://forms.gle/7ASfLYKiUacyMgedA" class="topbar__link" target="_blank" rel="noopener noreferrer">Add Yourself →</a>
+    </p>
+    <button class="topbar__close" id="topBarClose" aria-label="Dismiss notice">✕</button>
   </div>
-</div>
+</aside>
 
-<!-- ================= NAV ================= -->
-<nav class="nav">
+<!-- ================= NAVIGATION ================= -->
+<nav class="nav" aria-label="Main navigation">
   <div class="nav__bar">
-    <a href="#top" class="nav__brand">🪔 R33 <span>Elevate Tower</span></a>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <a href="#top" class="nav__brand">
+      <div class="nav__brand-icon"> ॐ️</div>
+      <span>R33</span> Elevate Tower
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-controls="navLinks" aria-expanded="false">☰</button>
     <ul class="nav__links" id="navLinks">
       <li><a href="#about">About</a></li>
-      <li><a href="#events">Register</a></li>
-      <li><a href="#whatsapp-groups">WhatsApp Groups</a></li>
+      <li><a href="#events">Registrations</a></li>
+      <li><a href="#direct-updates">WhatsApp Groups</a></li>
       <li><a href="#notices">Notices</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
@@ -336,84 +678,112 @@
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero__garland" aria-hidden="true">
-      <svg width="220" height="26" viewBox="0 0 220 26">
-        <g fill="#E9CE84">
-          <circle cx="10" cy="13" r="9"/><circle cx="34" cy="13" r="9"/><circle cx="58" cy="13" r="9"/>
-          <circle cx="82" cy="13" r="9"/><circle cx="106" cy="13" r="9"/><circle cx="130" cy="13" r="9"/>
-          <circle cx="154" cy="13" r="9"/><circle cx="178" cy="13" r="9"/><circle cx="202" cy="13" r="9"/>
+      <svg width="220" height="26" viewBox="0 0 220 26" fill="none">
+        <g fill="#F5D374">
+          <circle cx="10" cy="13" r="7"/><circle cx="34" cy="13" r="7"/><circle cx="58" cy="13" r="7"/>
+          <circle cx="82" cy="13" r="7"/><circle cx="106" cy="13" r="7"/><circle cx="130" cy="13" r="7"/>
+          <circle cx="154" cy="13" r="7"/><circle cx="178" cy="13" r="7"/><circle cx="202" cy="13" r="7"/>
         </g>
       </svg>
     </div>
-    <p class="eyebrow">R33 Elevate Tower Ganesh Utsav Mandal</p>
+    
+    <span class="eyebrow">R33 Elevate Tower Ganesh Utsav Mandal</span>
     <h1>Ganpati Bappa Morya</h1>
-    <p class="hero__sub">Our residents come together every year to celebrate Ganesh Utsav with devotion, culture and community spirit. Register for events, contribute, and stay updated — all in one place.</p>
+    
+    <p class="hero__sub">
+      Our residents come together every year to celebrate Ganesh Utsav with devotion, culture, and community spirit. Register for events, contribute, and stay updated — 
+      <span class="flash-pill">
+        <span class="sparkle-icon">✨</span>
+        <strong class="flash-text">all in one place</strong>
+        <span class="sparkle-icon">✨</span>
+      </span>.
+    </p>
   </div>
+  
   <div class="hero__divider" aria-hidden="true">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none" width="100%" height="60">
-      <path d="M0,60 L0,20 Q300,60 600,20 T1200,20 L1200,60 Z" fill="#FBF1DE"/>
+      <path d="M0,60 L0,20 Q300,60 600,20 T1200,20 L1200,60 Z" fill="#FBF4E8"/>
     </svg>
   </div>
 </header>
 
 <!-- ================= QUICK ACTIONS ================= -->
-<section class="qa">
+<section class="qa" aria-label="Quick Action Buttons">
   <div class="wrap qa__row">
-    <!-- EDIT ME: replace # with your Cultural Google Form link -->
-    <a href="#" class="btn btn--solid" id="btnCommunityQA">Register — Community Events</a>
-    <!-- Real link supplied: Sports Games registration -->
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" id="btnSportsQA" target="_blank" rel="noopener">Register — Sports Games</a>
-    <!-- EDIT ME: replace # with your Cultural Google Form link -->
-    <a href="#" class="btn btn--outline" id="btnCulturalQA">Register — Cultural</a>
-    <a href="#whatsapp-groups" class="btn btn--ghost" id="btnWhatsappQA">💬 Join a WhatsApp Group</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Register — Sports Games</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="btn btn--outline" id="btnCulturalQA" target="_blank" rel="noopener noreferrer">Register — Cultural</a>
+    <a href="#direct-updates" class="btn btn--ghost">💬 Join a WhatsApp Group</a>
   </div>
 </section>
 
 <!-- ================= WHATSAPP GROUPS ================= -->
-<section class="section" id="whatsapp-groups" style="padding-bottom:40px;">
+<section class="section" id="whatsapp-groups">
   <div class="wrap">
-    <div class="section__head">
-      <p class="eyebrow">Stay Updated</p>
+    <div class="section__head" id="direct-updates">
+      <span class="eyebrow">Direct Updates</span>
       <h2>Join Our WhatsApp Groups</h2>
-      <p style="color:#4a3a3f;font-size:15px;">Join the group relevant to you — updates, schedules and reminders are shared there first.</p>
+      <p>Connect to the right activity group — practice schedules, lineups, and reminders are broadcast here first.</p>
     </div>
-    <div class="wa__grid">
+    
+    <div class="grid-3">
+      <!-- Sports Games -->
       <div class="card">
-        <div class="card__icon">🏏</div>
+        <div class="card__icon" aria-hidden="true">🏏</div>
         <h3>Sports Games</h3>
-        <p>There's no separate Sports WhatsApp group — register directly below, and updates will be shared via the General Announcements group.</p>
-        <div class="about__cta" style="margin-top:16px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--ghost" target="_blank" rel="noopener">Register for Games</a></div>
+        <p>There's no separate Sports WhatsApp group — register directly below, and sports updates will be broadcast to all participants.</p>
+        <div class="card__action">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Register for Games</a>
+        </div>
       </div>
+
+      <!-- Cultural Group -->
       <div class="card">
-        <div class="card__icon">🎭</div>
+        <div class="card__icon" aria-hidden="true">🎭</div>
         <h3>Cultural Group</h3>
-        <p>Rehearsal timings, performance order and cultural event updates.</p>
-        <!-- EDIT ME: replace # with your Cultural WhatsApp group invite link -->
-        <div class="about__cta" style="margin-top:16px;"><a href="#" class="btn btn--ghost">Join Group</a></div>
+        <p>Rehearsal timings, performance order, slot schedules, and cultural evening updates.</p>
+        <div class="card__action">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Register for Cultural</a>
+        </div>
       </div>
+
+      <!-- Tabla Class -->
       <div class="card">
-        <div class="card__icon">📢</div>
-        <h3>General Announcements</h3>
-        <p>Aarti timings, general festival updates and society-wide announcements.</p>
-        <!-- EDIT ME: replace # with your General/Community WhatsApp group invite link -->
-        <div class="about__cta" style="margin-top:16px;"><a href="#" class="btn btn--ghost">Join Group</a></div>
-      </div>
-      <div class="card">
-        <div class="card__icon">🥁</div>
+        <div class="card__icon" aria-hidden="true">🥁</div>
         <h3>Tabla Class</h3>
         <p>Interested in learning Tabla for the festival? Join for class schedules and practice sessions.</p>
-        <div class="about__cta" style="margin-top:16px;"><a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" class="btn btn--ghost" target="_blank" rel="noopener">Join Group</a></div>
+        <div class="card__action">
+          <a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Join Group</a>
+        </div>
       </div>
+
+      <!-- Lezim Practice -->
       <div class="card">
-        <div class="card__icon">💃</div>
+        <div class="card__icon" aria-hidden="true">💃</div>
         <h3>Lezim</h3>
         <p>Traditional Lezim practice sessions ahead of the procession — join for timings and updates.</p>
-        <div class="about__cta" style="margin-top:16px;"><a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" class="btn btn--ghost" target="_blank" rel="noopener">Join Group</a></div>
+        <div class="card__action">
+          <a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Join Group</a>
+        </div>
       </div>
+
+      <!-- Art & Drawing -->
       <div class="card">
-        <div class="card__icon">🎨</div>
+        <div class="card__icon" aria-hidden="true">🎨</div>
         <h3>Art &amp; Drawing</h3>
-        <p>Art and drawing activity group — session updates, themes and materials needed.</p>
-        <div class="about__cta" style="margin-top:16px;"><a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" class="btn btn--ghost" target="_blank" rel="noopener">Join Group</a></div>
+        <p>Art and drawing activity group — session updates, themes, and materials needed.</p>
+        <div class="card__action">
+          <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Join Group</a>
+        </div>
+      </div>
+
+      <!-- Volunteers Team -->
+      <div class="card">
+        <div class="card__icon" aria-hidden="true">🤝</div>
+        <h3>Volunteers Hub</h3>
+        <p>Coordinate decoration, prasad distribution, crowd management, and daily pooja duties.</p>
+        <div class="card__action">
+          <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Join Volunteers</a>
+        </div>
       </div>
     </div>
   </div>
@@ -423,28 +793,33 @@
 <section class="section section--alt" id="about">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">About Us</p>
+      <span class="eyebrow">Our Community</span>
       <h2>Our Ganesh Utsav, Our Community</h2>
+      <p>Building traditions and lifelong friendships within R33 Elevate Tower.</p>
     </div>
-    <div class="about__grid">
+    
+    <div class="grid-3">
       <div class="card">
-        <div class="card__icon">🕉️</div>
+        <div class="card__icon" aria-hidden="true">🕉️</div>
         <h3>Our Story</h3>
-        <p>Every year, residents of R33 Elevate Tower come together to bring Bappa home. What began as a small gathering has grown into a festival that unites every wing, floor and family in the tower.</p>
+        <p>Every year, residents of R33 Elevate Tower come together to bring Bappa home. What began as a small gathering has grown into a festival that unites every wing, floor, and family in the tower.</p>
       </div>
+
       <div class="card">
-        <div class="card__icon">🤝</div>
+        <div class="card__icon" aria-hidden="true">🤝</div>
         <h3>Our Team</h3>
-        <p>A committee of resident volunteers handles pooja arrangements, decoration, cultural events, sports and coordination — all on a purely voluntary basis, with full transparency on funds collected and spent.</p>
+        <p>A committee of resident volunteers handles pooja arrangements, decoration, cultural events, sports, and coordination — all on a purely voluntary basis, with full transparency on funds collected and spent.</p>
       </div>
+
       <div class="card">
-        <div class="card__icon">🎉</div>
+        <div class="card__icon" aria-hidden="true">🎉</div>
         <h3>Get Involved</h3>
-        <p>Everyone is welcome — owners and tenants alike. Whether it's decoration, event hosting, sports coordination or simply spreading the word, there's a place for you on the team.</p>
+        <p>Everyone is welcome — owners and tenants alike. Whether it's decoration, event hosting, sports coordination, or simply spreading the word, there's a place for you on the team.</p>
       </div>
     </div>
-    <div class="about__cta">
-      <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--outline" target="_blank" rel="noopener">Join the Volunteer Team</a>
+
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Join the Volunteer Team</a>
     </div>
   </div>
 </section>
@@ -453,7 +828,7 @@
 <section class="section" id="contribute">
   <div class="wrap steps">
     <div>
-      <p class="eyebrow">Contribute</p>
+      <span class="eyebrow">Support the Festival</span>
       <h2>How to Contribute</h2>
       <ul class="steps__list">
         <li>
@@ -465,7 +840,7 @@
         <li>
           <div>
             <h4>Share your details</h4>
-            <p>Send your payment screenshot, name and flat number to the committee contact number below.</p>
+            <p>Send your payment screenshot, name, and flat number to the committee contact number below.</p>
           </div>
         </li>
         <li>
@@ -476,73 +851,83 @@
         </li>
       </ul>
     </div>
+    
     <div class="qr-box">
-      <img src="upi-qr.jpg" alt="R33 Elevate Tower UPI QR Code" style="width:180px;height:180px;object-fit:contain;background:#fff;border-radius:10px;border:2px solid var(--maroon);padding:10px;margin:0 auto 16px;">
-      <p style="margin:0;font-size:14px;">Scan with any UPI app (GPay, PhonePe, Paytm, BHIM, etc.) to contribute.</p>
+      <img src="upi-qr.jpg" alt="R33 Elevate Tower UPI QR Code" loading="lazy">
+      <p>Scan with any UPI app (GPay, PhonePe, Paytm, BHIM, etc.) to contribute.</p>
     </div>
   </div>
 </section>
 
-<!-- ================= EVENTS ================= -->
+<!-- ================= REGISTRATIONS / EVENTS ================= -->
 <section class="section section--alt" id="events">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">Registrations</p>
+      <span class="eyebrow">Participation</span>
       <h2>Ganesh Festival 2026 — Register</h2>
+      <p>Secure your slots in community gatherings, athletic tournaments, and stage performances.</p>
     </div>
-    <div class="events__grid">
-      <div class="event event--open">
-        <span class="event__tag">Open Now</span>
+    
+    <div class="grid-3">
+      <!-- Community Events -->
+      <div class="event-card">
+        <span class="event-card__tag">Open Now</span>
         <h3>Community Events</h3>
-        <p>Aarti timings, Mahaprasad, decoration duty and general festival activities — register your family's participation.</p>
-        <!-- EDIT ME -->
-        <a href="#" class="btn btn--gold">Register Now</a>
+        <p>Aarti timings, Mahaprasad, decoration duty, and general festival activities — register your family's participation.</p>
+        <a href="#contact" class="btn btn--gold">Register via Committee</a>
       </div>
-      <div class="event event--open">
-        <span class="event__tag">Open Now</span>
+
+      <!-- Sports Tournament -->
+      <div class="event-card">
+        <span class="event-card__tag">Open Now</span>
         <h3>Sports Tournament</h3>
-        <p>Running Race, Slow Cycling, Sack Race, Musical Chairs, Housie and more — register below.</p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" target="_blank" rel="noopener">Register Now</a>
+        <p>Running Race, Slow Cycling, Sack Race, Musical Chairs, Housie, and more — register below.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Register Now</a>
       </div>
-      <div class="event event--open">
-        <span class="event__tag">Open Now</span>
+
+      <!-- Cultural Competitions -->
+      <div class="event-card">
+        <span class="event-card__tag">Open Now</span>
         <h3>Cultural Competitions</h3>
-        <p>Dance, singing, art and more for all age groups. Register below and join the Cultural WhatsApp group for schedules.</p>
-        <!-- EDIT ME: replace # with your Cultural Google Form link -->
-        <a href="#" class="btn btn--gold">Register Now</a>
+        <p>Dance, singing, art, and stage performances for all age groups. Register below and participate.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Register Now</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= NOTICES (general purpose) ================= -->
+<!-- ================= NOTICES ================= -->
 <section class="section" id="notices">
   <div class="wrap">
     <div class="section__head">
-      <p class="eyebrow">Announcements</p>
-      <h2>Society Notices</h2>
-      <p style="color:#4a3a3f;font-size:15px;">This board isn't just for the festival — use it year-round for general society announcements too.</p>
+      <span class="eyebrow">Society Board</span>
+      <h2>Society Notices &amp; Announcements</h2>
+      <p>This board isn't just for the festival — use it year-round for general society announcements too.</p>
     </div>
-    <div class="notices__grid">
+    
+    <div class="grid-2">
       <div class="notice">
-        <span class="notice__date">Sample · Edit Me</span>
+        <span class="notice__date">Upcoming · Meeting</span>
         <h4>Ganesh Utsav Committee Meeting</h4>
-        <p>All residents are welcome to join the planning meeting in the clubhouse. Replace this with your real date and time.</p>
+        <p>All residents are welcome to join the planning meeting in the clubhouse. Details and agendas are shared in groups.</p>
       </div>
+
       <div class="notice">
-        <span class="notice__date">Sample · Edit Me</span>
+        <span class="notice__date">Guidelines · Active</span>
         <h4>Parking Guidelines During Festival</h4>
-        <p>Visitor parking arrangements during the festival days — add your society's specific instructions here.</p>
+        <p>Visitor parking arrangements during the festival days — please ensure emergency driveways remain clear.</p>
       </div>
+
       <div class="notice">
-        <span class="notice__date">Sample · Edit Me</span>
+        <span class="notice__date">Maintenance · Notice</span>
         <h4>Lift Maintenance Schedule</h4>
-        <p>Example of a general, non-festival notice — this board works for everyday society updates as well.</p>
+        <p>Routine inspection for Wing A and Wing B elevators scheduled between 2:00 PM and 4:00 PM on Tuesday.</p>
       </div>
+
       <div class="notice">
-        <span class="notice__date">Sample · Edit Me</span>
+        <span class="notice__date">Call for Volunteers</span>
         <h4>Volunteers Needed for Decoration</h4>
-        <p>Call for residents to help with pandal decoration — swap in your real ask and contact person.</p>
+        <p>Call for residents to help with pandal decoration — eco-friendly flower and stage setup begins prior to Sthapana.</p>
       </div>
     </div>
   </div>
@@ -550,47 +935,32 @@
 
 <!-- ================= CONTACT ================= -->
 <section class="section section--alt" id="contact">
-  <div class="wrap contact__grid">
+  <div class="wrap grid-2">
     <div>
-      <p class="eyebrow">Contact</p>
+      <span class="eyebrow">Helpdesk</span>
       <h2>Get in Touch</h2>
-      <ul class="contact__list">
+      <ul class="contact-list">
         <li>
-          <div>
-            <b>Address</b>
-            <!-- EDIT ME -->
-            R33 Elevate Tower, [Your Locality], [Your City], [State] [PIN]
-          </div>
+          <b>Address</b>
+          R33 Elevate Tower, Clubhouse.
         </li>
-        <li>
-          <div>
-            <b>Phone / WhatsApp</b>
-            <!-- EDIT ME -->
-            +91 [Committee Contact Number]
-          </div>
-        </li>
-        <li>
-          <div>
-            <b>Email</b>
-            <!-- EDIT ME -->
-            r33elevate.ganeshutsav@example.com
-          </div>
-        </li>
+        
       </ul>
-      <div class="social-row">
-        <!-- EDIT ME: real social links -->
+      
+      <div class="social-row" aria-label="Social media channels">
         <a href="#" aria-label="Instagram">IG</a>
         <a href="#" aria-label="Facebook">FB</a>
         <a href="#" aria-label="YouTube">YT</a>
       </div>
     </div>
+
     <div class="card">
-      <h3 style="margin-bottom:10px;">Quick Links</h3>
-      <p style="margin-bottom:16px;color:#4a3a3f;">Keep these handy — pin the WhatsApp group and registration links in your building's resident groups.</p>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <a href="#whatsapp-groups" class="btn btn--outline">💬 WhatsApp Groups</a>
+      <h3 style="margin-bottom:8px;">Quick Shortcuts</h3>
+      <p style="margin-bottom:20px;">Keep these links accessible or share them with neighbors in your wing.</p>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <a href="#direct-updates" class="btn btn--outline">💬 WhatsApp Groups</a>
         <a href="#events" class="btn btn--outline">📋 Event Registrations</a>
-        <a href="#contribute" class="btn btn--outline">🙏 Contribute</a>
+        <a href="#contribute" class="btn btn--outline">🙏 How to Contribute</a>
       </div>
     </div>
   </div>
@@ -600,54 +970,177 @@
 <footer class="footer">
   <div class="wrap">
     <p><strong>R33 Elevate Tower</strong> Ganesh Utsav Mandal</p>
-    <p>© <span id="year"></span> R33 Elevate Tower. Made by residents, for residents. 🙏</p>
+    <p>© <span id="year">2026</span> R33 Elevate Tower. Made by residents, for residents. 🙏</p>
   </div>
 </footer>
 
-<a href="#whatsapp-groups" class="fab" id="fabWhatsapp">💬 Join a WhatsApp Group</a>
+<!-- ================= FLOATING SPEED-DIAL WHATSAPP NAVIGATION ================= -->
+<div class="fab-container" id="fabContainer">
+  <!-- Expandable Speed-Dial Menu -->
+  <div class="fab-menu" id="fabMenu" role="menu" aria-label="WhatsApp Group Links">
+    <div class="fab-menu__header">Select a Group to Join</div>
+
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+      <span class="fab-menu__icon">🎭</span>
+      <div>
+        <strong>Cultural Group</strong>
+        <small>Register &amp; performance info</small>
+      </div>
+    </a>
+    
+    <a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+      <span class="fab-menu__icon">🥁</span>
+      <div>
+        <strong>Tabla Class</strong>
+        <small>Practice timings &amp; updates</small>
+      </div>
+    </a>
+
+    <a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+      <span class="fab-menu__icon">💃</span>
+      <div>
+        <strong>Lezim Practice</strong>
+        <small>Procession drills &amp; timings</small>
+      </div>
+    </a>
+
+    <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+      <span class="fab-menu__icon">🎨</span>
+      <div>
+        <strong>Art &amp; Drawing</strong>
+        <small>Session themes &amp; materials</small>
+      </div>
+    </a>
+
+    <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+      <span class="fab-menu__icon">🤝</span>
+      <div>
+        <strong>Volunteers Team</strong>
+        <small>Pandal &amp; pooja coordination</small>
+      </div>
+    </a>
+
+    <a href="#direct-updates" class="fab-menu__item fab-menu__item--viewall" role="menuitem">
+      <span class="fab-menu__icon">📍</span>
+      <div>
+        <strong>View All Groups On Page</strong>
+        <small>Scroll to Direct Updates</small>
+      </div>
+    </a>
+  </div>
+
+  <!-- Main Floating Action Button -->
+  <button class="fab" id="fabToggle" aria-haspopup="true" aria-expanded="false" aria-label="Open WhatsApp groups navigation">
+    <span class="fab__icon">💬</span>
+    <span>WhatsApp Groups</span>
+    <span class="fab__arrow" aria-hidden="true">▲</span>
+  </button>
+</div>
 
 <!-- ================= COOKIE BANNER ================= -->
-<div class="cookie-banner" id="cookieBanner">
-  <span>This site uses basic cookies to remember your preferences. No data is sold or shared.</span>
-  <button class="btn btn--gold" id="cookieAccept" style="padding:8px 18px;">Accept</button>
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie consent">
+  <span>This site uses local preferences to remember your dismissals. No third-party data tracking.</span>
+  <button class="btn btn--gold" id="cookieAccept" style="padding:6px 18px; font-size:13.5px;">Acknowledge</button>
 </div>
 
 <script>
-  // ---- Mobile nav toggle ----
+  // Mobile Navigation Toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    const open = navLinks.classList.toggle('is-open');
-    navToggle.setAttribute('aria-expanded', open);
-  });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('is-open');
-    navToggle.setAttribute('aria-expanded', false);
-  }));
+  
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('is-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
 
-  // ---- Footer year ----
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // ---- Top banner dismiss ----
-  document.getElementById('topBarClose').addEventListener('click', () => {
-    document.getElementById('topBar').style.display = 'none';
-  });
-
-  // ---- Cookie consent banner ----
-  const cookieBanner = document.getElementById('cookieBanner');
-  const cookieAccept = document.getElementById('cookieAccept');
-  const fabWhatsapp = document.getElementById('fabWhatsapp');
-  if (!localStorage.getItem('r33-cookie-ack')) {
-    requestAnimationFrame(() => {
-      cookieBanner.classList.add('is-visible');
-      fabWhatsapp.style.bottom = '86px';
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
     });
   }
-  cookieAccept.addEventListener('click', () => {
-    localStorage.setItem('r33-cookie-ack', '1');
-    cookieBanner.classList.remove('is-visible');
-    fabWhatsapp.style.bottom = '20px';
-  });
+
+  // Dynamic Year
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Topbar Notice Dismissal
+  const topBarClose = document.getElementById('topBarClose');
+  const topBar = document.getElementById('topBar');
+  if (topBarClose && topBar) {
+    topBarClose.addEventListener('click', () => {
+      topBar.style.display = 'none';
+    });
+  }
+
+  // Floating WhatsApp Speed-Dial Navigation & Smooth Anchor Scrolling
+  const fabContainer = document.getElementById('fabContainer');
+  const fabToggle = document.getElementById('fabToggle');
+  const fabMenu = document.getElementById('fabMenu');
+
+  if (fabToggle && fabContainer) {
+    fabToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const isOpen = fabContainer.classList.toggle('is-open');
+      fabToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    fabMenu.querySelectorAll('a').forEach(item => {
+      item.addEventListener('click', (e) => {
+        fabContainer.classList.remove('is-open');
+        fabToggle.setAttribute('aria-expanded', 'false');
+
+        const href = item.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }
+      });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!fabContainer.contains(e.target)) {
+        fabContainer.classList.remove('is-open');
+        fabToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && fabContainer.classList.contains('is-open')) {
+        fabContainer.classList.remove('is-open');
+        fabToggle.setAttribute('aria-expanded', 'false');
+        fabToggle.focus();
+      }
+    });
+  }
+
+  // Cookie Consent & FAB Height Adjustment
+  const cookieBanner = document.getElementById('cookieBanner');
+  const cookieAccept = document.getElementById('cookieAccept');
+
+  try {
+    if (!localStorage.getItem('r33-cookie-ack') && cookieBanner && fabContainer) {
+      requestAnimationFrame(() => {
+        cookieBanner.classList.add('is-visible');
+        fabContainer.style.bottom = '84px';
+      });
+    }
+  } catch (e) {}
+
+  if (cookieAccept && cookieBanner && fabContainer) {
+    cookieAccept.addEventListener('click', () => {
+      try {
+        localStorage.setItem('r33-cookie-ack', '1');
+      } catch (e) {}
+      cookieBanner.classList.remove('is-visible');
+      fabContainer.style.bottom = '24px';
+    });
+  }
 </script>
 </body>
 </html>
