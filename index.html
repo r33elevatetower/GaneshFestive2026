@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>R33 Elevate Tower — Ganesh Utsav 2026</title>
+<meta name="description" content="Official community site for R33 Elevate Tower Ganesh Utsav Mandal — event registrations, contributions, notices and updates.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yatra+One&family=Rajdhani:wght@500;600;700&family=Mukta:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF1DE;
+    --ivory-soft:#F3E4C6;
+    --maroon:#3A1220;
+    --maroon-deep:#260B15;
+    --vermilion:#C1440E;
+    --gold:#C7962E;
+    --gold-light:#E9CE84;
+    --green:#35563F;
+    --ink:#2B1B1F;
+    --font-display:'Yatra One', cursive;
+    --font-body:'Mukta', sans-serif;
+    --font-data:'Rajdhani', sans-serif;
+    --max:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.55;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--font-display);font-weight:400;margin:0 0 .4em;color:var(--maroon);}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:var(--font-data);
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:13px;
+    color:var(--vermilion);
+  }
+  :focus-visible{outline:3px solid var(--vermilion);outline-offset:3px;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important;transition-duration:.001ms !important;scroll-behavior:auto !important;}
+  }
+
+  /* ---------- TOP BANNER ---------- */
+  .topbar{
+    background:var(--vermilion);color:var(--ivory);
+    padding:11px 16px;text-align:center;
+    animation:topbar-flash 1.4s ease-in-out infinite;
+  }
+  @keyframes topbar-flash{
+    0%,100%{background:var(--vermilion);}
+    50%{background:var(--gold);color:var(--maroon-deep);}
+  }
+  .topbar__inner{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    flex-wrap:wrap;position:relative;
+  }
+  .topbar__text{margin:0;font-size:14.5px;font-weight:700;}
+  .topbar__text a{color:inherit;text-decoration:underline;margin-left:6px;}
+  .topbar__close{
+    position:absolute;right:0;top:50%;transform:translateY(-50%);
+    background:none;border:none;color:inherit;font-size:17px;cursor:pointer;
+    padding:4px 8px;line-height:1;
+  }
+  @media (max-width:640px){
+    .topbar__inner{flex-direction:column;gap:6px;padding-right:0;}
+    .topbar__close{position:static;transform:none;}
+  }
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:sticky;top:0;z-index:50;
+    background:var(--maroon);
+    border-bottom:3px solid var(--gold);
+  }
+  .nav__bar{
+    max-width:var(--max);margin:0 auto;padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .nav__brand{
+    display:flex;align-items:center;gap:10px;
+    color:var(--ivory);text-decoration:none;
+    font-family:var(--font-display);font-size:20px;
+  }
+  .nav__brand span{color:var(--gold-light);}
+  .nav__links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
+  .nav__links a{
+    color:var(--ivory-soft);text-decoration:none;font-weight:600;font-size:15px;
+    padding:6px 2px;border-bottom:2px solid transparent;transition:border-color .2s, color .2s;
+  }
+  .nav__links a:hover{border-color:var(--gold);color:var(--gold-light);}
+  .nav__toggle{
+    display:none;background:none;border:2px solid var(--gold);border-radius:6px;
+    color:var(--ivory);width:40px;height:36px;font-size:20px;cursor:pointer;
+  }
+  @media (max-width:840px){
+    .nav__links{
+      position:absolute;top:100%;left:0;right:0;background:var(--maroon);
+      flex-direction:column;gap:0;max-height:0;overflow:hidden;transition:max-height .3s ease;
+      border-bottom:3px solid var(--gold);
+    }
+    .nav__links.is-open{max-height:400px;}
+    .nav__links a{display:block;padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.08);}
+    .nav__toggle{display:block;}
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:radial-gradient(ellipse at top, var(--maroon) 0%, var(--maroon-deep) 75%);
+    color:var(--ivory);
+    padding:64px 0 90px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero__garland{display:flex;justify-content:center;gap:4px;margin-bottom:22px;}
+  .hero__garland svg{opacity:.9;}
+  .hero .eyebrow{color:var(--gold-light);}
+  .hero h1{
+    color:var(--ivory);
+    font-size:clamp(40px,7vw,68px);
+    margin:10px 0 6px;
+    text-shadow:0 2px 0 rgba(0,0,0,.25);
+  }
+  .hero__sub{
+    max-width:620px;margin:0 auto 34px;
+    color:var(--ivory-soft);font-size:18px;
+  }
+  .hero__divider{
+    position:absolute;bottom:-2px;left:0;width:100%;line-height:0;
+  }
+
+  /* ---------- QUICK ACTIONS ---------- */
+  .qa{
+    background:var(--ivory-soft);
+    padding:28px 0;
+    border-bottom:1px solid rgba(58,18,32,.1);
+  }
+  .qa__row{
+    display:flex;flex-wrap:wrap;gap:14px;justify-content:center;
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 22px;border-radius:999px;
+    font-family:var(--font-body);font-weight:600;font-size:15px;
+    text-decoration:none;border:2px solid transparent;cursor:pointer;
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn--solid{background:var(--vermilion);color:var(--ivory);}
+  .btn--solid:hover{box-shadow:0 6px 16px rgba(193,68,14,.35);}
+  .btn--gold{background:var(--gold);color:var(--maroon-deep);}
+  .btn--gold:hover{box-shadow:0 6px 16px rgba(199,150,46,.4);}
+  .btn--outline{background:transparent;border-color:var(--maroon);color:var(--maroon);}
+  .btn--outline:hover{background:var(--maroon);color:var(--ivory);}
+  .btn--ghost{background:var(--green);color:var(--ivory);}
+  .btn--ghost:hover{box-shadow:0 6px 16px rgba(53,86,63,.35);}
+  .btn--disabled{opacity:.55;cursor:not-allowed;}
+  .btn--disabled:hover{transform:none;box-shadow:none;}
+
+  /* ---------- SECTION SHELL ---------- */
+  .section{padding:72px 0;}
+  .section__head{text-align:center;max-width:640px;margin:0 auto 44px;}
+  .section--alt{background:var(--ivory-soft);}
+
+  /* ---------- ABOUT ---------- */
+  .about__grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:26px;
+  }
+  .card{
+    background:var(--ivory);
+    border:1px solid rgba(58,18,32,.12);
+    border-radius:14px;padding:28px 24px;
+  }
+  .card__icon{
+    width:44px;height:44px;border-radius:10px;
+    background:var(--maroon);color:var(--gold-light);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-display);font-size:20px;margin-bottom:16px;
+  }
+  .card h3{font-size:21px;margin-bottom:8px;}
+  .card p{margin:0;color:#4a3a3f;font-size:15.5px;}
+  .about__cta{text-align:center;margin-top:38px;}
+
+  /* ---------- CONTRIBUTE STEPS ---------- */
+  .steps{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;}
+  .steps__list{list-style:none;margin:0;padding:0;counter-reset:step;}
+  .steps__list li{
+    counter-increment:step;
+    display:flex;gap:16px;margin-bottom:22px;
+  }
+  .steps__list li::before{
+    content:counter(step);
+    flex:none;width:36px;height:36px;border-radius:50%;
+    background:var(--vermilion);color:var(--ivory);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-data);font-weight:700;font-size:16px;
+  }
+  .steps__list h4{margin:0 0 4px;font-family:var(--font-body);font-size:16.5px;font-weight:700;color:var(--maroon);}
+  .steps__list p{margin:0;color:#4a3a3f;font-size:15px;}
+  .qr-box{
+    background:var(--ivory);border:2px solid var(--gold);border-radius:16px;
+    padding:34px;text-align:center;color:#7a6a58;
+  }
+  .qr-box__mark{
+    width:150px;height:150px;margin:0 auto 16px;
+    border-radius:10px;border:2px solid var(--maroon);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-data);font-size:13px;color:var(--maroon);
+    background:
+      repeating-linear-gradient(0deg, var(--maroon) 0 6px, transparent 6px 12px) 0 0/100% 6px no-repeat,
+      repeating-linear-gradient(90deg, var(--maroon) 0 6px, transparent 6px 12px) 0 0/6px 100% no-repeat,
+      repeating-linear-gradient(0deg, var(--maroon) 0 6px, transparent 6px 12px) 100% 0/6px 100% no-repeat,
+      repeating-linear-gradient(90deg, var(--maroon) 0 6px, transparent 6px 12px) 0 100%/100% 6px no-repeat;
+  }
+
+  /* ---------- EVENTS ---------- */
+  .events__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .event{
+    background:var(--maroon);color:var(--ivory);
+    border-radius:14px;padding:28px 24px;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .event--open .event__tag{background:var(--green);}
+  .event--soon .event__tag{background:var(--gold);color:var(--maroon-deep);}
+  .event__tag{
+    align-self:flex-start;
+    font-family:var(--font-data);font-size:12px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;
+    padding:5px 12px;border-radius:99px;color:var(--ivory);
+  }
+  .event h3{color:var(--gold-light);font-size:22px;margin-bottom:2px;}
+  .event p{margin:0;color:var(--ivory-soft);font-size:15px;flex-grow:1;}
+
+  /* ---------- NOTICES ---------- */
+  .notices__grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+  .notice{
+    background:var(--ivory);border-left:5px solid var(--vermilion);
+    border-radius:0 10px 10px 0;padding:18px 22px;
+    box-shadow:0 2px 8px rgba(58,18,32,.06);
+  }
+  .notice__date{
+    font-family:var(--font-data);font-size:12.5px;font-weight:600;
+    color:var(--vermilion);letter-spacing:.05em;text-transform:uppercase;
+  }
+  .notice h4{margin:6px 0 4px;font-size:17px;color:var(--maroon);}
+  .notice p{margin:0;color:#4a3a3f;font-size:14.5px;}
+
+  /* ---------- CONTACT ---------- */
+  .contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;}
+  .contact__list{list-style:none;padding:0;margin:0;}
+  .contact__list li{display:flex;gap:14px;margin-bottom:18px;font-size:15.5px;}
+  .contact__list b{display:block;font-size:13px;color:var(--vermilion);text-transform:uppercase;letter-spacing:.06em;}
+  .social-row{display:flex;gap:12px;margin-top:18px;}
+  .social-row a{
+    width:40px;height:40px;border-radius:50%;background:var(--maroon);color:var(--ivory);
+    display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:15px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .footer{
+    background:var(--maroon-deep);color:var(--ivory-soft);
+    padding:36px 0;text-align:center;font-size:14px;
+  }
+  .footer strong{color:var(--gold-light);}
+
+  /* ---------- WHATSAPP FAB ---------- */
+  .fab{
+    position:fixed;right:20px;bottom:20px;z-index:60;
+    background:var(--green);color:var(--ivory);
+    padding:13px 18px;border-radius:999px;text-decoration:none;
+    display:flex;align-items:center;gap:8px;font-weight:700;font-size:14px;
+    box-shadow:0 8px 22px rgba(0,0,0,.25);
+    transition:bottom .3s ease;
+  }
+
+  /* ---------- WHATSAPP GROUPS ---------- */
+  .wa__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  @media (max-width:900px){.wa__grid{grid-template-columns:1fr;}}
+
+  /* ---------- COOKIE BANNER ---------- */
+  .cookie-banner{
+    position:fixed;left:0;right:0;bottom:0;z-index:70;
+    background:var(--maroon-deep);color:var(--ivory-soft);
+    padding:16px 20px;display:flex;gap:16px;align-items:center;justify-content:center;
+    flex-wrap:wrap;font-size:13.5px;text-align:center;
+    transform:translateY(100%);transition:transform .4s ease;
+    border-top:2px solid var(--gold);
+  }
+  .cookie-banner.is-visible{transform:translateY(0);}
+
+  @media (max-width:900px){
+    .about__grid,.events__grid,.notices__grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    .contact__grid{grid-template-columns:1fr;}
+    .board__stats{grid-template-columns:1fr;gap:22px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= TOP BANNER ================= -->
+<div class="topbar" id="topBar">
+  <div class="wrap topbar__inner">
+    <p class="topbar__text">📧 Owners — please add yourself to our Group Distribution List Email.<a href="https://forms.gle/7ASfLYKiUacyMgedA" target="_blank" rel="noopener">Add Yourself →</a></p>
+    <button class="topbar__close" id="topBarClose" aria-label="Dismiss this notice">✕</button>
+  </div>
+</div>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="nav__bar">
+    <a href="#top" class="nav__brand">🪔 R33 <span>Elevate Tower</span></a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#about">About</a></li>
+      <li><a href="#events">Register</a></li>
+      <li><a href="#whatsapp-groups">WhatsApp Groups</a></li>
+      <li><a href="#notices">Notices</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="hero__garland" aria-hidden="true">
+      <svg width="220" height="26" viewBox="0 0 220 26">
+        <g fill="#E9CE84">
+          <circle cx="10" cy="13" r="9"/><circle cx="34" cy="13" r="9"/><circle cx="58" cy="13" r="9"/>
+          <circle cx="82" cy="13" r="9"/><circle cx="106" cy="13" r="9"/><circle cx="130" cy="13" r="9"/>
+          <circle cx="154" cy="13" r="9"/><circle cx="178" cy="13" r="9"/><circle cx="202" cy="13" r="9"/>
+        </g>
+      </svg>
+    </div>
+    <p class="eyebrow">R33 Elevate Tower Ganesh Utsav Mandal</p>
+    <h1>Ganpati Bappa Morya</h1>
+    <p class="hero__sub">Our residents come together every year to celebrate Ganesh Utsav with devotion, culture and community spirit. Register for events, contribute, and stay updated — all in one place.</p>
+  </div>
+  <div class="hero__divider" aria-hidden="true">
+    <svg viewBox="0 0 1200 60" preserveAspectRatio="none" width="100%" height="60">
+      <path d="M0,60 L0,20 Q300,60 600,20 T1200,20 L1200,60 Z" fill="#FBF1DE"/>
+    </svg>
+  </div>
+</header>
+
+<!-- ================= QUICK ACTIONS ================= -->
+<section class="qa">
+  <div class="wrap qa__row">
+    <!-- EDIT ME: replace # with your Cultural Google Form link -->
+    <a href="#" class="btn btn--solid" id="btnCommunityQA">Register — Community Events</a>
+    <!-- Real link supplied: Sports Games registration -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" id="btnSportsQA" target="_blank" rel="noopener">Register — Sports Games</a>
+    <!-- EDIT ME: replace # with your Cultural Google Form link -->
+    <a href="#" class="btn btn--outline" id="btnCulturalQA">Register — Cultural</a>
+    <a href="#whatsapp-groups" class="btn btn--ghost" id="btnWhatsappQA">💬 Join a WhatsApp Group</a>
+  </div>
+</section>
+
+<!-- ================= WHATSAPP GROUPS ================= -->
+<section class="section" id="whatsapp-groups" style="padding-bottom:40px;">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Stay Updated</p>
+      <h2>Join Our WhatsApp Groups</h2>
+      <p style="color:#4a3a3f;font-size:15px;">Join the group relevant to you — updates, schedules and reminders are shared there first.</p>
+    </div>
+    <div class="wa__grid">
+      <div class="card">
+        <div class="card__icon">🏏</div>
+        <h3>Sports Games</h3>
+        <p>There's no separate Sports WhatsApp group — register directly below, and updates will be shared via the General Announcements group.</p>
+        <div class="about__cta" style="margin-top:16px;"><a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--ghost" target="_blank" rel="noopener">Register for Games</a></div>
+      </div>
+      <div class="card">
+        <div class="card__icon">🎭</div>
+        <h3>Cultural Group</h3>
+        <p>Rehearsal timings, performance order and cultural event updates.</p>
+        <!-- EDIT ME: replace # with your Cultural WhatsApp group invite link -->
+        <div class="about__cta" style="margin-top:16px;"><a href="#" class="btn btn--ghost">Join Group</a></div>
+      </div>
+      <div class="card">
+        <div class="card__icon">📢</div>
+        <h3>General Announcements</h3>
+        <p>Aarti timings, general festival updates and society-wide announcements.</p>
+        <!-- EDIT ME: replace # with your General/Community WhatsApp group invite link -->
+        <div class="about__cta" style="margin-top:16px;"><a href="#" class="btn btn--ghost">Join Group</a></div>
+      </div>
+      <div class="card">
+        <div class="card__icon">🥁</div>
+        <h3>Tabla Class</h3>
+        <p>Interested in learning Tabla for the festival? Join for class schedules and practice sessions.</p>
+        <div class="about__cta" style="margin-top:16px;"><a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" class="btn btn--ghost" target="_blank" rel="noopener">Join Group</a></div>
+      </div>
+      <div class="card">
+        <div class="card__icon">💃</div>
+        <h3>Lezim</h3>
+        <p>Traditional Lezim practice sessions ahead of the procession — join for timings and updates.</p>
+        <div class="about__cta" style="margin-top:16px;"><a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" class="btn btn--ghost" target="_blank" rel="noopener">Join Group</a></div>
+      </div>
+      <div class="card">
+        <div class="card__icon">🎨</div>
+        <h3>Art &amp; Drawing</h3>
+        <p>Art and drawing activity group — session updates, themes and materials needed.</p>
+        <div class="about__cta" style="margin-top:16px;"><a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" class="btn btn--ghost" target="_blank" rel="noopener">Join Group</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section section--alt" id="about">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">About Us</p>
+      <h2>Our Ganesh Utsav, Our Community</h2>
+    </div>
+    <div class="about__grid">
+      <div class="card">
+        <div class="card__icon">🕉️</div>
+        <h3>Our Story</h3>
+        <p>Every year, residents of R33 Elevate Tower come together to bring Bappa home. What began as a small gathering has grown into a festival that unites every wing, floor and family in the tower.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🤝</div>
+        <h3>Our Team</h3>
+        <p>A committee of resident volunteers handles pooja arrangements, decoration, cultural events, sports and coordination — all on a purely voluntary basis, with full transparency on funds collected and spent.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon">🎉</div>
+        <h3>Get Involved</h3>
+        <p>Everyone is welcome — owners and tenants alike. Whether it's decoration, event hosting, sports coordination or simply spreading the word, there's a place for you on the team.</p>
+      </div>
+    </div>
+    <div class="about__cta">
+      <!-- EDIT ME: link to your "Join Us / Volunteer" Google Form -->
+      <a href="#" class="btn btn--outline">Join the Volunteer Team</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTRIBUTE ================= -->
+<section class="section" id="contribute">
+  <div class="wrap steps">
+    <div>
+      <p class="eyebrow">Contribute</p>
+      <h2>How to Contribute</h2>
+      <ul class="steps__list">
+        <li>
+          <div>
+            <h4>Scan and pay</h4>
+            <p>Use the UPI QR code alongside to make your contribution — any amount is welcome and appreciated.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h4>Share your details</h4>
+            <p>Send your payment screenshot, name and flat number to the committee contact number below.</p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h4>Get your receipt</h4>
+            <p>Once verified, you'll receive an official receipt and, where applicable, a registration code for events.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="qr-box">
+      <img src="upi-qr.jpg" alt="R33 Elevate Tower UPI QR Code" style="width:180px;height:180px;object-fit:contain;background:#fff;border-radius:10px;border:2px solid var(--maroon);padding:10px;margin:0 auto 16px;">
+      <p style="margin:0;font-size:14px;">Scan with any UPI app (GPay, PhonePe, Paytm, BHIM, etc.) to contribute.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EVENTS ================= -->
+<section class="section section--alt" id="events">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Registrations</p>
+      <h2>Ganesh Festival 2026 — Register</h2>
+    </div>
+    <div class="events__grid">
+      <div class="event event--open">
+        <span class="event__tag">Open Now</span>
+        <h3>Community Events</h3>
+        <p>Aarti timings, Mahaprasad, decoration duty and general festival activities — register your family's participation.</p>
+        <!-- EDIT ME -->
+        <a href="#" class="btn btn--gold">Register Now</a>
+      </div>
+      <div class="event event--open">
+        <span class="event__tag">Open Now</span>
+        <h3>Sports Tournament</h3>
+        <p>Running Race, Slow Cycling, Sack Race, Musical Chairs, Housie and more — register below.</p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" target="_blank" rel="noopener">Register Now</a>
+      </div>
+      <div class="event event--open">
+        <span class="event__tag">Open Now</span>
+        <h3>Cultural Competitions</h3>
+        <p>Dance, singing, art and more for all age groups. Register below and join the Cultural WhatsApp group for schedules.</p>
+        <!-- EDIT ME: replace # with your Cultural Google Form link -->
+        <a href="#" class="btn btn--gold">Register Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= NOTICES (general purpose) ================= -->
+<section class="section" id="notices">
+  <div class="wrap">
+    <div class="section__head">
+      <p class="eyebrow">Announcements</p>
+      <h2>Society Notices</h2>
+      <p style="color:#4a3a3f;font-size:15px;">This board isn't just for the festival — use it year-round for general society announcements too.</p>
+    </div>
+    <div class="notices__grid">
+      <div class="notice">
+        <span class="notice__date">Sample · Edit Me</span>
+        <h4>Ganesh Utsav Committee Meeting</h4>
+        <p>All residents are welcome to join the planning meeting in the clubhouse. Replace this with your real date and time.</p>
+      </div>
+      <div class="notice">
+        <span class="notice__date">Sample · Edit Me</span>
+        <h4>Parking Guidelines During Festival</h4>
+        <p>Visitor parking arrangements during the festival days — add your society's specific instructions here.</p>
+      </div>
+      <div class="notice">
+        <span class="notice__date">Sample · Edit Me</span>
+        <h4>Lift Maintenance Schedule</h4>
+        <p>Example of a general, non-festival notice — this board works for everyday society updates as well.</p>
+      </div>
+      <div class="notice">
+        <span class="notice__date">Sample · Edit Me</span>
+        <h4>Volunteers Needed for Decoration</h4>
+        <p>Call for residents to help with pandal decoration — swap in your real ask and contact person.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section section--alt" id="contact">
+  <div class="wrap contact__grid">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Get in Touch</h2>
+      <ul class="contact__list">
+        <li>
+          <div>
+            <b>Address</b>
+            <!-- EDIT ME -->
+            R33 Elevate Tower, [Your Locality], [Your City], [State] [PIN]
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Phone / WhatsApp</b>
+            <!-- EDIT ME -->
+            +91 [Committee Contact Number]
+          </div>
+        </li>
+        <li>
+          <div>
+            <b>Email</b>
+            <!-- EDIT ME -->
+            r33elevate.ganeshutsav@example.com
+          </div>
+        </li>
+      </ul>
+      <div class="social-row">
+        <!-- EDIT ME: real social links -->
+        <a href="#" aria-label="Instagram">IG</a>
+        <a href="#" aria-label="Facebook">FB</a>
+        <a href="#" aria-label="YouTube">YT</a>
+      </div>
+    </div>
+    <div class="card">
+      <h3 style="margin-bottom:10px;">Quick Links</h3>
+      <p style="margin-bottom:16px;color:#4a3a3f;">Keep these handy — pin the WhatsApp group and registration links in your building's resident groups.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a href="#whatsapp-groups" class="btn btn--outline">💬 WhatsApp Groups</a>
+        <a href="#events" class="btn btn--outline">📋 Event Registrations</a>
+        <a href="#contribute" class="btn btn--outline">🙏 Contribute</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <p><strong>R33 Elevate Tower</strong> Ganesh Utsav Mandal</p>
+    <p>© <span id="year"></span> R33 Elevate Tower. Made by residents, for residents. 🙏</p>
+  </div>
+</footer>
+
+<a href="#whatsapp-groups" class="fab" id="fabWhatsapp">💬 Join a WhatsApp Group</a>
+
+<!-- ================= COOKIE BANNER ================= -->
+<div class="cookie-banner" id="cookieBanner">
+  <span>This site uses basic cookies to remember your preferences. No data is sold or shared.</span>
+  <button class="btn btn--gold" id="cookieAccept" style="padding:8px 18px;">Accept</button>
+</div>
+
+<script>
+  // ---- Mobile nav toggle ----
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', open);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', false);
+  }));
+
+  // ---- Footer year ----
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ---- Top banner dismiss ----
+  document.getElementById('topBarClose').addEventListener('click', () => {
+    document.getElementById('topBar').style.display = 'none';
+  });
+
+  // ---- Cookie consent banner ----
+  const cookieBanner = document.getElementById('cookieBanner');
+  const cookieAccept = document.getElementById('cookieAccept');
+  const fabWhatsapp = document.getElementById('fabWhatsapp');
+  if (!localStorage.getItem('r33-cookie-ack')) {
+    requestAnimationFrame(() => {
+      cookieBanner.classList.add('is-visible');
+      fabWhatsapp.style.bottom = '86px';
+    });
+  }
+  cookieAccept.addEventListener('click', () => {
+    localStorage.setItem('r33-cookie-ack', '1');
+    cookieBanner.classList.remove('is-visible');
+    fabWhatsapp.style.bottom = '20px';
+  });
+</script>
+</body>
+</html>
