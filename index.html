@@ -6,6 +6,7 @@
 <title>R33 Elevate Tower — Ganesh Utsav 2026</title>
 <meta name="description" content="Official community site for R33 Elevate Tower Ganesh Utsav Mandal — event registrations, contributions, notices and updates.">
 
+<!-- Open Graph / Social Sharing Meta -->
 <meta property="og:type" content="website">
 <meta property="og:title" content="R33 Elevate Tower — Ganesh Utsav 2026">
 <meta property="og:description" content="Official community portal for Ganesh Utsav registrations, contributions, notices, and WhatsApp groups.">
@@ -476,6 +477,7 @@
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
 
+  /* Fully clickable Card */
   .card {
     background: var(--ivory-surface);
     border: 1px solid rgba(56, 14, 29, 0.09);
@@ -490,6 +492,11 @@
     color: inherit;
   }
   .card:active { opacity: 0.9; }
+
+  /* Ensures direct child clicks trigger parent anchor without hitch */
+  .card[href] * {
+    pointer-events: none;
+  }
 
   .card__icon {
     width: 48px; height: 48px; border-radius: 12px;
@@ -689,7 +696,7 @@
     background: rgba(193, 59, 14, 0.2);
   }
 
-  /* ---------- COOKIE BANNER ---------- */
+  /* ---------- COOKIE BANNER (PREVENTS TOUCH BLOCKING) ---------- */
   .cookie-banner {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
     background: var(--maroon-deep); color: var(--ivory-soft);
@@ -799,7 +806,7 @@
   </div>
 </section>
 
-<!-- ================= WHATSAPP GROUPS ================= -->
+<!-- ================= WHATSAPP GROUPS (FULLY CLICKABLE CARDS) ================= -->
 <section class="section" id="whatsapp-groups">
   <div class="wrap">
     <div class="section__head" id="direct-updates">
@@ -927,7 +934,9 @@
         <li>
           <div>
             <h4>Share your details</h4>
-            <p>Send your payment screenshot, name, and flat number to the committee contact number below.</p>
+            <p>✅ Payment Screenshot<br>
+            ✅ Flat No. &amp; Name<br>
+            ✅ Number of family members attending Mahaprasad details to 9881322000.</p>
           </div>
         </li>
         <li>
