@@ -13,7 +13,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Mukta:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Mukta:wght@400;500;600;700;800&family=Rajdhani:wght@500;600;700&family=Rozha+One&family=Yatra+One&display=swap" rel="stylesheet">
 
 <style>
   :root {
@@ -32,6 +32,7 @@
     --green-glow: rgba(41, 87, 56, 0.35);
     --ink: #26161A;
     --ink-muted: #574349;
+    --font-marathi: 'Rozha One', 'Yatra One', serif;
     --font-display: 'Cinzel', Georgia, serif;
     --font-body: 'Mukta', sans-serif;
     --font-data: 'Rajdhani', sans-serif;
@@ -61,7 +62,7 @@
   }
 
   img { max-width: 100%; height: auto; display: block; }
-  a { color: inherit; text-decoration: none; }
+  a { color: inherit; text-decoration: none; -webkit-tap-highlight-color: transparent; }
   h1, h2, h3, h4 { 
     font-family: var(--font-display); 
     font-weight: 700; 
@@ -92,7 +93,6 @@
 
   :focus-visible { outline: 3px solid var(--vermilion); outline-offset: 3px; }
 
-  /* Smooth scroll offsets to clear the sticky navbar */
   #whatsapp-groups, #direct-updates, #events, #about, #notices, #contact, #contribute {
     scroll-margin-top: 90px;
   }
@@ -126,6 +126,7 @@
     background: linear-gradient(90deg, transparent, #FFE382, #FFF7D6, #FFE382, transparent);
     background-size: 200% 100%;
     animation: goldBeam 3.5s linear infinite;
+    pointer-events: none;
   }
 
   .topbar__inner {
@@ -190,13 +191,10 @@
     font-size: 13.5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25), 0 0 12px rgba(245, 211, 116, 0.4);
     overflow: hidden;
-    transition: transform 0.2s var(--ease-bounce), box-shadow 0.2s;
+    touch-action: manipulation;
   }
 
-  .topbar__cta:hover {
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35), 0 0 18px rgba(245, 211, 116, 0.7);
-  }
+  .topbar__cta:active { opacity: 0.85; }
 
   .topbar__cta::before {
     content: '';
@@ -213,11 +211,11 @@
     );
     transform: skewX(-25deg);
     animation: lightSweep 3.2s ease-in-out infinite;
+    pointer-events: none;
   }
 
   .arrow-bounce {
     display: inline-block;
-    transition: transform 0.2s;
     animation: arrowNudge 1.6s ease-in-out infinite;
   }
 
@@ -237,12 +235,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .topbar__close:hover {
-    background: rgba(0, 0, 0, 0.5);
-    transform: translateY(-50%) scale(1.1);
   }
 
   @keyframes gradientFlow {
@@ -319,8 +311,9 @@
       position: absolute; top: 100%; left: 0; right: 0; background: var(--maroon);
       flex-direction: column; max-height: 0; overflow: hidden;
       transition: max-height 0.4s var(--ease-smooth); border-bottom: 3px solid var(--gold);
+      pointer-events: none;
     }
-    .nav__links.is-open { max-height: 480px; box-shadow: 0 16px 30px rgba(0,0,0,0.3); }
+    .nav__links.is-open { max-height: 480px; box-shadow: 0 16px 30px rgba(0,0,0,0.3); pointer-events: auto; }
     .nav__links a { display: block; padding: 16px 24px; border-bottom: 1px solid rgba(255,255,255,0.06); }
     .nav__toggle { display: block; }
   }
@@ -344,15 +337,17 @@
   .hero .eyebrow { color: var(--gold-bright); }
   .hero .eyebrow::before, .hero .eyebrow::after { color: var(--gold-bright); }
   
-  .hero h1 {
-    color: #FFFDF9;
-    font-size: clamp(36px, 6.5vw, 68px);
-    font-weight: 800;
-    letter-spacing: 0.03em;
+  .hero h1.marathi-title {
+    font-family: var(--font-marathi);
+    font-size: clamp(40px, 8vw, 76px);
+    font-weight: 700;
+    letter-spacing: 0.02em;
     margin: 8px 0 16px;
-    line-height: 1.2;
-    text-shadow: 0 4px 18px rgba(0,0,0,0.45);
+    line-height: 1.25;
+    color: #FFFDF9;
+    text-shadow: 0 4px 22px rgba(0,0,0,0.55), 0 0 12px rgba(245, 211, 116, 0.2);
   }
+  
   .hero__sub {
     max-width: 680px; margin: 0 auto 36px;
     color: var(--ivory-soft); font-size: 18.5px; line-height: 1.65;
@@ -446,28 +441,30 @@
     display: flex; flex-wrap: wrap; gap: 14px; justify-content: center;
   }
 
-  /* ---------- BUTTONS ---------- */
+  /* ---------- FAST-TOUCH BUTTONS ---------- */
+  a, button, .btn, .fab, .topbar__cta {
+    touch-action: manipulation;
+  }
+
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 9px;
     padding: 12px 24px; border-radius: 999px; font-family: var(--font-body);
     font-weight: 700; font-size: 15.5px; border: 2px solid transparent;
-    cursor: pointer; transition: transform 0.25s var(--ease-bounce), box-shadow 0.25s var(--ease-smooth), background 0.2s;
-    text-align: center;
+    cursor: pointer; text-align: center;
   }
-  .btn:hover { transform: translateY(-3px); }
-  .btn:active { transform: translateY(-1px); }
+
+  @media (hover: hover) and (pointer: fine) {
+    .btn:hover { transform: translateY(-2px); }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lift); border-color: rgba(201, 151, 40, 0.4); }
+    .topbar__cta:hover { transform: translateY(-2px) scale(1.04); }
+  }
+
+  .btn:active, .fab:active { opacity: 0.85; }
 
   .btn--solid { background: var(--vermilion); color: #fff; box-shadow: 0 4px 14px var(--vermilion-glow); }
-  .btn--solid:hover { background: #A82E05; box-shadow: 0 8px 22px var(--vermilion-glow); color: #fff; }
-  
   .btn--gold { background: var(--gold-gradient); color: var(--maroon-deep); font-weight: 800; box-shadow: 0 4px 14px rgba(201, 151, 40, 0.35); }
-  .btn--gold:hover { box-shadow: 0 8px 24px rgba(201, 151, 40, 0.5); filter: brightness(1.05); }
-
   .btn--outline { background: transparent; border-color: var(--maroon); color: var(--maroon); }
-  .btn--outline:hover { background: var(--maroon); color: var(--ivory); }
-
   .btn--ghost { background: var(--green); color: #fff; box-shadow: 0 4px 14px var(--green-glow); }
-  .btn--ghost:hover { background: #1f432b; box-shadow: 0 8px 22px var(--green-glow); }
 
   /* ---------- SECTIONS ---------- */
   .section { padding: 84px 0; }
@@ -480,6 +477,7 @@
   .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; }
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
 
+  /* Fully clickable Card */
   .card {
     background: var(--ivory-surface);
     border: 1px solid rgba(56, 14, 29, 0.09);
@@ -488,13 +486,13 @@
     display: flex;
     flex-direction: column;
     box-shadow: var(--shadow-card);
-    transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth), border-color 0.3s;
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
   }
-  .card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-lift);
-    border-color: rgba(201, 151, 40, 0.4);
-  }
+  .card:active { opacity: 0.9; }
+
   .card__icon {
     width: 48px; height: 48px; border-radius: 12px;
     background: var(--maroon); color: var(--gold-bright);
@@ -505,35 +503,25 @@
   .card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
   .card p { margin: 0; color: var(--ink-muted); font-size: 15.5px; line-height: 1.6; }
   .card__action { margin-top: auto; padding-top: 24px; }
-  .card__action .btn { width: 100%; }
+  .card__action .btn { width: 100%; pointer-events: none; } /* Lets the card anchor handle the tap cleanly */
 
-  /* ---------- EVENTS ---------- */
-  .event-card {
-    background: linear-gradient(170deg, var(--maroon) 0%, var(--maroon-deep) 100%);
-    color: var(--ivory);
-    border-radius: var(--radius-md);
-    padding: 32px 26px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 12px 32px rgba(32, 7, 16, 0.25);
-    border: 1px solid rgba(245, 211, 116, 0.15);
-    transition: transform 0.3s var(--ease-smooth), box-shadow 0.3s var(--ease-smooth);
+  /* ---------- NOTICES ---------- */
+  .notice {
+    background: var(--ivory-surface);
+    border-left: 5px solid var(--vermilion);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    padding: 22px 24px;
+    box-shadow: var(--shadow-soft);
+    border-top: 1px solid rgba(56, 14, 29, 0.05);
+    border-right: 1px solid rgba(56, 14, 29, 0.05);
+    border-bottom: 1px solid rgba(56, 14, 29, 0.05);
   }
-  .event-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(32, 7, 16, 0.35);
+  .notice__date {
+    font-family: var(--font-data); font-size: 12px; font-weight: 700;
+    color: var(--vermilion); letter-spacing: 0.08em; text-transform: uppercase;
   }
-  .event-card__tag {
-    align-self: flex-start;
-    font-family: var(--font-data); font-size: 11.5px; font-weight: 700;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    padding: 4px 12px; border-radius: 99px; margin-bottom: 16px;
-    background: var(--green); color: #fff;
-    box-shadow: 0 2px 8px var(--green-glow);
-  }
-  .event-card h3 { color: var(--gold-bright); font-size: 22px; font-weight: 700; margin-bottom: 8px; }
-  .event-card p { margin: 0 0 24px; color: var(--ivory-soft); font-size: 15.5px; line-height: 1.6; }
-  .event-card .btn { margin-top: auto; width: 100%; }
+  .notice h4 { margin: 6px 0 6px; font-size: 18px; font-weight: 700; color: var(--maroon); }
+  .notice p { margin: 0; color: var(--ink-muted); font-size: 15px; }
 
   /* ---------- STEPS & CONTRIBUTE ---------- */
   .steps { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
@@ -568,26 +556,6 @@
   }
   .qr-box p { margin: 0; color: var(--ink-muted); font-size: 14.5px; font-weight: 500; }
 
-  /* ---------- NOTICES ---------- */
-  .notice {
-    background: var(--ivory-surface);
-    border-left: 5px solid var(--vermilion);
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    padding: 22px 24px;
-    box-shadow: var(--shadow-soft);
-    border-top: 1px solid rgba(56, 14, 29, 0.05);
-    border-right: 1px solid rgba(56, 14, 29, 0.05);
-    border-bottom: 1px solid rgba(56, 14, 29, 0.05);
-    transition: transform 0.25s var(--ease-smooth);
-  }
-  .notice:hover { transform: translateX(4px); }
-  .notice__date {
-    font-family: var(--font-data); font-size: 12px; font-weight: 700;
-    color: var(--vermilion); letter-spacing: 0.08em; text-transform: uppercase;
-  }
-  .notice h4 { margin: 6px 0 6px; font-size: 18px; font-weight: 700; color: var(--maroon); }
-  .notice p { margin: 0; color: var(--ink-muted); font-size: 15px; }
-
   /* ---------- CONTACT & SOCIAL ---------- */
   .contact-list { list-style: none; padding: 0; margin: 0 0 28px; }
   .contact-list li { margin-bottom: 20px; font-size: 16px; }
@@ -600,10 +568,9 @@
   .social-row a {
     width: 44px; height: 44px; border-radius: 50%; background: var(--maroon);
     color: var(--ivory); display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 14.5px; transition: transform 0.25s var(--ease-bounce), background 0.2s;
+    font-weight: 700; font-size: 14.5px;
     box-shadow: 0 4px 10px rgba(56, 14, 29, 0.2);
   }
-  .social-row a:hover { background: var(--vermilion); transform: translateY(-3px); }
 
   /* ---------- FOOTER ---------- */
   .footer {
@@ -617,7 +584,7 @@
   .footer strong { color: var(--gold-bright); }
   .footer p { margin: 4px 0; }
 
-  /* ---------- FLOATING GROUP NAVIGATION ---------- */
+  /* ---------- FIXED FLOATING NAVIGATION ---------- */
   .fab-container {
     position: fixed;
     right: 24px;
@@ -626,7 +593,12 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    pointer-events: none;
     transition: bottom 0.3s var(--ease-smooth);
+  }
+
+  .fab, .fab-menu {
+    pointer-events: auto;
   }
 
   .fab {
@@ -643,12 +615,6 @@
     font-size: 15px;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.3);
     cursor: pointer;
-    transition: transform 0.25s var(--ease-bounce), background 0.2s;
-  }
-
-  .fab:hover {
-    background: #1f432b;
-    transform: translateY(-2px);
   }
 
   .fab__arrow {
@@ -668,20 +634,13 @@
     padding: 12px;
     margin-bottom: 12px;
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 6px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(16px) scale(0.95);
-    transform-origin: bottom right;
-    transition: opacity 0.25s ease, transform 0.25s var(--ease-bounce), visibility 0.25s;
   }
 
   .fab-container.is-open .fab-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0) scale(1);
+    display: flex;
   }
 
   .fab-menu__header {
@@ -705,12 +664,6 @@
     background: rgba(255, 255, 255, 0.05);
     color: var(--ivory);
     text-decoration: none;
-    transition: background 0.2s, transform 0.2s;
-  }
-
-  .fab-menu__item:hover {
-    background: rgba(201, 151, 40, 0.25);
-    transform: translateX(-3px);
   }
 
   .fab-menu__item strong {
@@ -738,11 +691,7 @@
     background: rgba(193, 59, 14, 0.2);
   }
 
-  .fab-menu__item--viewall:hover {
-    background: var(--vermilion);
-  }
-
-  /* ---------- COOKIE BANNER ---------- */
+  /* ---------- COOKIE BANNER (PREVENTS TOUCH BLOCKING) ---------- */
   .cookie-banner {
     position: fixed; left: 0; right: 0; bottom: 0; z-index: 70;
     background: var(--maroon-deep); color: var(--ivory-soft);
@@ -750,8 +699,14 @@
     flex-wrap: wrap; font-size: 14.5px; text-align: center; border-top: 2px solid var(--gold);
     transform: translateY(100%); transition: transform 0.4s var(--ease-smooth);
     box-shadow: 0 -4px 20px rgba(0,0,0,0.25);
+    visibility: hidden;
+    pointer-events: none;
   }
-  .cookie-banner.is-visible { transform: translateY(0); }
+  .cookie-banner.is-visible { 
+    transform: translateY(0); 
+    visibility: visible;
+    pointer-events: auto;
+  }
 
   /* ---------- RESPONSIVE BREAKPOINTS ---------- */
   @media (max-width: 960px) {
@@ -763,14 +718,6 @@
     .grid-3, .grid-2 { grid-template-columns: 1fr; }
     .section { padding: 60px 0; }
     .hero { padding: 50px 0 85px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.001ms !important;
-      transition-duration: 0.001ms !important;
-      scroll-behavior: auto !important;
-    }
   }
 </style>
 </head>
@@ -785,7 +732,7 @@
         Note For Owners
       </span>
       <span>Join our email group to receive official updates and communications from Amanora township management.</span>
-      <a href="https://forms.gle/7ASfLYKiUacyMgedA" class="topbar__cta" target="_blank" rel="noopener noreferrer">
+      <a href="https://forms.gle/7ASfLYKiUacyMgedA" class="topbar__cta" rel="noopener noreferrer">
         <span>Add Yourself</span>
         <span class="arrow-bounce" aria-hidden="true">→</span>
       </a>
@@ -824,11 +771,10 @@
         </g>
       </svg>
     </div>
-    
+
     <span class="eyebrow">R33 Elevate Tower Ganesh Utsav Mandal</span>
-    <!--<h1>Ganpati Bappa Morya</h1> -->
-	 <h1 class="marathi-title">गणपती बाप्पा मोरया</h1>
-    
+    <h1 class="marathi-title">गणपती बाप्पा मोरया</h1>
+
     <p class="hero__sub">
       Our residents come together every year to celebrate Ganesh Utsav with devotion, culture, and community spirit. Register for events, contribute, and stay updated — 
       <span class="flash-pill">
@@ -838,7 +784,7 @@
       </span>.
     </p>
   </div>
-  
+
   <div class="hero__divider" aria-hidden="true">
     <svg viewBox="0 0 1200 60" preserveAspectRatio="none" width="100%" height="60">
       <path d="M0,60 L0,20 Q300,60 600,20 T1200,20 L1200,60 Z" fill="#FBF4E8"/>
@@ -849,13 +795,13 @@
 <!-- ================= QUICK ACTIONS ================= -->
 <section class="qa" aria-label="Quick Action Buttons">
   <div class="wrap qa__row">
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Register — Sports Games</a>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="btn btn--gold" id="btnCulturalQA" target="_blank" rel="noopener noreferrer">Register — Cultural</a>
-    <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">💬 Join a WhatsApp Group</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" rel="noopener noreferrer">Register — Sports Games</a>
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="btn btn--gold" id="btnCulturalQA" target="_blank" rel="noopener">Register — Cultural</a>
+    <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--ghost" rel="noopener noreferrer">💬 Join a WhatsApp Group</a>
   </div>
 </section>
 
-<!-- ================= WHATSAPP GROUPS ================= -->
+<!-- ================= WHATSAPP GROUPS (FULLY CLICKABLE CARDS) ================= -->
 <section class="section" id="whatsapp-groups">
   <div class="wrap">
     <div class="section__head" id="direct-updates">
@@ -863,71 +809,71 @@
       <h2>Join Our WhatsApp Groups</h2>
       <p>Connect to the right activity group — practice schedules, lineups, and reminders are broadcast here first.</p>
     </div>
-    
+
     <div class="grid-3">
       <!-- Sports Games -->
-      <div class="card">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="card" rel="noopener noreferrer">
         <div class="card__icon" aria-hidden="true">🏏</div>
         <h3>Sports Games</h3>
-        <p>There's no separate Sports WhatsApp group — register directly below, and sports updates will be broadcast to all participants.</p>
-        <p>Coordinator : Manasi Kulkarni</p>
+        <p>There's no separate Sports WhatsApp group — register directly, and sports updates will be broadcast to all participants.</p>
+        <p style="margin-top:8px; font-weight:600; font-size:14px; color:var(--maroon);">Coordinator: Manasi Kulkarni</p>
         <div class="card__action">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Register for Games</a>
+          <span class="btn btn--ghost">Register for Games</span>
         </div>
-      </div>
+      </a>
 
       <!-- Cultural Group -->
-      <div class="card">
-        <div class="card__icon" aria-hidden="true">🎭</div>
-        <h3>Cultural Group</h3>
-        <p>Rehearsal timings, performance order, slot schedules, and cultural evening updates.</p>
-        <p>Coordinator : Ruchi Kamra & Jaya Udawat</p>
-        <div class="card__action">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Register for Cultural</a>
-        </div>
-      </div>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="card" target="_blank" rel="noopener">
+  <div class="card__icon" aria-hidden="true">🎭</div>
+  <h3>Cultural Group</h3>
+  <p>Rehearsal timings, performance order, slot schedules, and cultural evening updates.</p>
+  <p style="margin-top:8px; font-weight:600; font-size:14px; color:var(--maroon);">Coordinator: Ruchi Kamra &amp; Jaya Udawat</p>
+  <div class="card__action">
+    <span class="btn btn--ghost">Register for Cultural</span>
+  </div>
+</a>
 
       <!-- Tabla Class -->
-      <div class="card">
+      <a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" class="card" rel="noopener noreferrer">
         <div class="card__icon" aria-hidden="true">🥁</div>
         <h3>Tabla Class</h3>
         <p>Interested in learning Tabla for the festival? Join for class schedules and practice sessions.</p>
         <div class="card__action">
-          <a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Join Group</a>
+          <span class="btn btn--ghost">Join Group</span>
         </div>
-      </div>
+      </a>
 
       <!-- Lezim Practice -->
-      <div class="card">
+      <a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" class="card" rel="noopener noreferrer">
         <div class="card__icon" aria-hidden="true">💃</div>
         <h3>Lezim</h3>
         <p>Traditional Lezim practice sessions ahead of the procession — join for timings and updates.</p>
-        <p>Coordinator : Rutuja Nadage & Snehal Yadav</p>
+        <p style="margin-top:8px; font-weight:600; font-size:14px; color:var(--maroon);">Coordinator: Rutuja Nadage &amp; Snehal Yadav</p>
         <div class="card__action">
-          <a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Join Group</a>
+          <span class="btn btn--ghost">Join Group</span>
         </div>
-      </div>
+      </a>
 
       <!-- Art & Drawing -->
-      <div class="card">
+      <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" class="card" rel="noopener noreferrer">
         <div class="card__icon" aria-hidden="true">🎨</div>
         <h3>Art &amp; Drawing</h3>
         <p>Art and drawing activity group — session updates, themes, and materials needed.</p>
-         <p>Coordinator : Ruchi Kamra & Jaya Udawat</p>
+        <p style="margin-top:8px; font-weight:600; font-size:14px; color:var(--maroon);">Coordinator: Ruchi Kamra &amp; Jaya Udawat</p>
         <div class="card__action">
-          <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Join Group</a>
+          <span class="btn btn--ghost">Join Group</span>
         </div>
-      </div>
+      </a>
 
       <!-- Volunteers Team -->
-      <div class="card">
+      <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="card" rel="noopener noreferrer">
         <div class="card__icon" aria-hidden="true">🤝</div>
         <h3>Volunteers Hub</h3>
         <p>Coordinate decoration, prasad distribution, crowd management, and daily pooja duties.</p>
         <div class="card__action">
-          <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Join Volunteers</a>
+          <span class="btn btn--ghost">Join Volunteers</span>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
@@ -940,21 +886,21 @@
       <h2>Our Ganesh Utsav, Our Community</h2>
       <p>Building traditions and lifelong friendships within R33 Elevate Tower.</p>
     </div>
-    
+
     <div class="grid-3">
-      <div class="card">
+      <div class="card" style="cursor:default;">
         <div class="card__icon" aria-hidden="true">🕉️</div>
         <h3>Our Story</h3>
         <p>It’s our very first Ganesh Utsav at R33 Elevate Tower! Since most of us have just moved in, this festival is the best chance to finally meet the people living across the hall and on other floors. We'd love to see everyone come down—join the games, help out with the pandal, attend the daily aartis, and get to know your neighbours. Let’s make our first celebration a memorable one together.</p>
       </div>
 
-      <div class="card">
+      <div class="card" style="cursor:default;">
         <div class="card__icon" aria-hidden="true">🤝</div>
         <h3>Our Team</h3>
         <p>Everything is organized entirely by residents volunteering their time. To pull this off smoothly, we need people to take ownership of specific tasks—decoration, pooja setups, crowd coordination, and games. If you've already joined the volunteer group, please speak up and pick a task! If you haven't joined yet, step forward—sharing the load makes it fun for everyone.</p>
       </div>
 
-      <div class="card">
+      <div class="card" style="cursor:default;">
         <div class="card__icon" aria-hidden="true">🎉</div>
         <h3>Get Involved</h3>
         <p>Everyone is welcome — owners and tenants alike. Whether it's decoration, event hosting, sports coordination, or simply spreading the word, there's a place for you on the team.</p>
@@ -962,7 +908,7 @@
     </div>
 
     <div style="text-align:center; margin-top:40px;">
-      <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--outline" target="_blank" rel="noopener noreferrer">Join the Volunteer Team</a>
+      <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" class="btn btn--outline" rel="noopener noreferrer">Join the Volunteer Team</a>
     </div>
   </div>
 </section>
@@ -983,7 +929,9 @@
         <li>
           <div>
             <h4>Share your details</h4>
-            <p>Send your payment screenshot, name, and flat number to the committee contact number below.</p>
+            <p>✅ Payment Screenshot
+✅ Flat No. & Name
+✅ Number of family members attending Mahaprasad details to 9881322000.</p>
           </div>
         </li>
         <li>
@@ -994,16 +942,15 @@
         </li>
       </ul>
     </div>
-    
+
     <div class="qr-box">
       <img src="upi-qr.jpg" alt="R33 Elevate Tower UPI QR Code" loading="lazy">
-      <p>UPI ID : 9881322000@kotak</p>
-      <p>UPI Name : Dalvi Kisabai Dattatray</p>
+      <p style="font-weight:700; color:var(--maroon); margin-bottom:4px;">UPI ID: 9881322000@kotak</p>
+      <p style="font-weight:600; margin-bottom:8px;">UPI Name: Dalvi Kisabai Dattatray</p>
       <p>Scan with any UPI app (GPay, PhonePe, Paytm, BHIM, etc.) to contribute.</p>
     </div>
   </div>
 </section>
-
 
 <!-- ================= CONTACT ================= -->
 <section class="section section--alt" id="contact">
@@ -1017,7 +964,7 @@
           R33 Elevate Tower, Clubhouse.
         </li>
       </ul>
-      
+
       <div class="social-row" aria-label="Social media channels">
         <a href="#" aria-label="Instagram">IG</a>
         <a href="#" aria-label="Facebook">FB</a>
@@ -1037,19 +984,18 @@
 
 <!-- ================= FLOATING SPEED-DIAL WHATSAPP NAVIGATION ================= -->
 <div class="fab-container" id="fabContainer">
-  <!-- Expandable Speed-Dial Menu -->
   <div class="fab-menu" id="fabMenu" role="menu" aria-label="WhatsApp Group Links">
     <div class="fab-menu__header">Select a Group to Join</div>
 
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
       <span class="fab-menu__icon">🎭</span>
       <div>
         <strong>Cultural Group</strong>
         <small>Register &amp; performance info</small>
       </div>
     </a>
-    
-    <a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+
+    <a href="https://chat.whatsapp.com/EEI8tMQMbbJHfKmD3wqFMt?s=cl&p=i&mlu=4" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
       <span class="fab-menu__icon">🥁</span>
       <div>
         <strong>Tabla Class</strong>
@@ -1057,7 +1003,7 @@
       </div>
     </a>
 
-    <a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+    <a href="https://chat.whatsapp.com/LJJLABDAcNzAOuJNIRqdiX?s=cl&p=a&ilr=1" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
       <span class="fab-menu__icon">💃</span>
       <div>
         <strong>Lezim Practice</strong>
@@ -1065,7 +1011,7 @@
       </div>
     </a>
 
-    <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+    <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
       <span class="fab-menu__icon">🎨</span>
       <div>
         <strong>Art &amp; Drawing</strong>
@@ -1073,7 +1019,7 @@
       </div>
     </a>
 
-    <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" target="_blank" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
+    <a href="https://chat.whatsapp.com/Hyvyp5lNfNaBaBnxQLXmpb" rel="noopener noreferrer" class="fab-menu__item" role="menuitem">
       <span class="fab-menu__icon">🤝</span>
       <div>
         <strong>Volunteers Team</strong>
@@ -1090,7 +1036,6 @@
     </a>
   </div>
 
-  <!-- Main Floating Action Button -->
   <button class="fab" id="fabToggle" aria-haspopup="true" aria-expanded="false" aria-label="Open WhatsApp groups navigation">
     <span class="fab__icon">💬</span>
     <span>WhatsApp Groups</span>
@@ -1105,10 +1050,21 @@
 </div>
 
 <script>
+// Force-open Google Forms cleanly across all mobile browsers
+document.querySelectorAll('a[href*="docs.google.com/forms"]').forEach(formLink => {
+  formLink.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const targetUrl = formLink.getAttribute('href').trim();
+    if (targetUrl) {
+      window.open(targetUrl, '_blank', 'noopener,noreferrer');
+    }
+  });
+});
+
   // Mobile Navigation Toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
-  
+
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
       const isOpen = navLinks.classList.toggle('is-open');

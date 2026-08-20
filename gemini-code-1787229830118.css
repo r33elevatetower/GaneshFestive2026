@@ -1,0 +1,16 @@
+/* ---------- INSTANT TOUCH OVERRIDES ---------- */
+  a, button, .btn, .fab, .topbar__cta {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn, .fab, .topbar__cta, .fab-menu__item {
+    will-change: transform;
+    transform: translateZ(0);
+    transition: transform 0.1s ease, background 0.15s ease !important;
+  }
+
+  .btn:active, .fab:active, .topbar__cta:active {
+    transform: scale(0.96) !important;
+    transition-duration: 0.05s !important;
+  }
