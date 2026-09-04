@@ -94,7 +94,7 @@
   :focus-visible { outline: 3px solid var(--vermilion); outline-offset: 3px; }
 
   /* Smooth scroll offsets to clear the sticky navbar */
-  #whatsapp-groups, #direct-updates, #events, #about, #notices, #contact, #contribute, #contributors {
+  #whatsapp-groups, #direct-updates, #events, #about, #notices, #contact, #contribute, #contributors, #festival-schedule {
     scroll-margin-top: 90px;
   }
 
@@ -453,9 +453,9 @@
     font-size: 18px; box-shadow: 0 2px 8px rgba(0,0,0,0.3);
   }
   .nav__brand span { color: var(--gold-bright); }
-  .nav__links { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+  .nav__links { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
   .nav__links a {
-    color: var(--ivory-soft); font-weight: 600; font-size: 15px;
+    color: var(--ivory-soft); font-weight: 600; font-size: 14.5px;
     padding: 6px 4px; border-bottom: 2px solid transparent;
     transition: color 0.2s, border-color 0.2s;
   }
@@ -465,7 +465,7 @@
     border-radius: 8px; color: var(--ivory); width: 42px; height: 38px; font-size: 22px; cursor: pointer;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 960px) {
     .nav__links {
       position: absolute; top: 100%; left: 0; right: 0; background: var(--maroon);
       flex-direction: column; max-height: 0; overflow: hidden;
@@ -488,7 +488,7 @@
   }
   .hero::before {
     content: "";
-    position: absolute inset: 0;
+    position: absolute; inset: 0;
     background: radial-gradient(circle at 50% 40%, rgba(201, 151, 40, 0.15), transparent 70%);
     pointer-events: none;
   }
@@ -570,7 +570,7 @@
       transform: scale(1);
     }
     50% {
-      border-color: rgba(255, 246, 209, 1);
+      border-color: #FFF6D1;
       box-shadow: 0 0 28px rgba(245, 211, 116, 0.8), inset 0 0 16px rgba(245, 211, 116, 0.35);
       transform: scale(1.03);
     }
@@ -638,7 +638,7 @@
 
   /* ---------- SECTIONS ---------- */
   .section { padding: 84px 0; }
-  .section__head { text-align: center; max-width: 680px; margin: 0 auto 52px; }
+  .section__head { text-align: center; max-width: 720px; margin: 0 auto 52px; }
   .section__head h2 { font-size: clamp(28px, 3.8vw, 38px); font-weight: 800; }
   .section__head p { margin: 0; color: var(--ink-muted); font-size: 16.5px; }
   .section--alt { background: var(--ivory-soft); border-top: 1px solid rgba(56, 14, 29, 0.06); border-bottom: 1px solid rgba(56, 14, 29, 0.06); }
@@ -731,6 +731,91 @@
     font-size: 13.5px;
     color: var(--ivory-soft);
     line-height: 1.5;
+  }
+
+  /* ---------- FESTIVAL TIMELINE TABLE ---------- */
+  .fest-schedule-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 2px solid var(--gold);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
+    background: var(--ivory-surface);
+  }
+
+  .fest-table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .fest-table th, .fest-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(56, 14, 29, 0.08);
+    border-right: 1px solid rgba(56, 14, 29, 0.06);
+    vertical-align: top;
+  }
+  .fest-table th:last-child, .fest-table td:last-child {
+    border-right: none;
+  }
+
+  .fest-table thead th {
+    background: var(--maroon);
+    color: var(--gold-bright);
+    font-family: var(--font-data);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .fest-table tbody tr:nth-child(even) {
+    background: rgba(243, 228, 198, 0.25);
+  }
+  .fest-table tbody tr:hover {
+    background: #FFF9EE;
+  }
+
+  .fest-day-badge {
+    display: inline-block;
+    background: var(--maroon);
+    color: var(--gold-bright);
+    font-family: var(--font-data);
+    font-weight: 800;
+    font-size: 13.5px;
+    letter-spacing: 0.05em;
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+  }
+  .fest-date {
+    display: block;
+    font-weight: 700;
+    color: var(--ink);
+    font-size: 14.5px;
+  }
+
+  .fest-item {
+    margin-bottom: 8px;
+    line-height: 1.5;
+  }
+  .fest-item:last-child {
+    margin-bottom: 0;
+  }
+  .fest-time {
+    display: inline-block;
+    font-family: var(--font-data);
+    font-weight: 800;
+    color: var(--vermilion);
+    background: rgba(193, 59, 14, 0.1);
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-size: 13.5px;
+    margin-right: 6px;
+    white-space: nowrap;
   }
 
   /* ---------- AARTI & PRASAD SCHEDULE MODAL & TABLE ---------- */
@@ -936,12 +1021,13 @@
   }
 
   .schedule-footer-note {
-    font-size: 13px;
+    font-size: 13.5px;
     color: var(--ink-muted);
     background: rgba(41, 87, 56, 0.08);
     border-left: 3px solid var(--green);
-    padding: 8px 12px;
-    border-radius: 4px;
+    padding: 10px 14px;
+    border-radius: 6px;
+    margin-top: 14px;
   }
 
   @media (max-width: 680px) {
@@ -1195,6 +1281,7 @@
     </a>
     <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation menu" aria-controls="navLinks" aria-expanded="false">☰</button>
     <ul class="nav__links" id="navLinks">
+      <li><a href="#festival-schedule">Schedule</a></li>
       <li><a href="#events">Registrations</a></li>
       <li><a href="#direct-updates">WhatsApp Groups</a></li>
       <li><a href="#contribute">Contribute (UPI)</a></li>
@@ -1242,6 +1329,7 @@
 <!-- ================= QUICK ACTIONS ================= -->
 <section class="qa" aria-label="Quick Action Buttons">
   <div class="wrap qa__row">
+    <a href="#festival-schedule" class="btn btn--gold">📅 Festival Schedule</a>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Register — Sports Games</a>
     <a href="https://docs.google.com/forms/d/e/1FAIpQLScUgMtH_enByzcf69yd4niF59pLPgkfYFM2roe2tg1uBxvkyg/viewform" class="btn btn--gold" id="btnCulturalQA" target="_blank" rel="noopener noreferrer">Register — Cultural</a>
     <a href="https://forms.gle/uV9ghvDBr4DfqBeM9" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Book Stalls (Games &amp; Food) 🎪</a>
@@ -1249,8 +1337,156 @@
   </div>
 </section>
 
+<!-- ================= GANESH UTSAV FESTIVAL SCHEDULE ================= -->
+<section class="section" id="festival-schedule">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="eyebrow">Festival Itinerary</span>
+      <h2>🙏 Ganesh Utsav Festival Schedule 🌺✨</h2>
+      <p>Dear Residents, join us in celebrating Ganesh Utsav with devotion, joy, and exciting activities for everyone! Here is our complete 7-day program schedule:</p>
+    </div>
+
+    <div class="fest-schedule-container">
+      <table class="fest-table">
+        <thead>
+          <tr>
+            <th style="width: 180px;">Day &amp; Date</th>
+            <th>Program &amp; Activity Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Day 1 -->
+          <tr>
+            <td>
+              <span class="fest-day-badge">Day 1</span>
+              <span class="fest-date">14th Sept (Mon)</span>
+            </td>
+            <td>
+              <div class="fest-item">
+                <span class="fest-time">🕒 3:00 PM – 6:00 PM</span>
+                <strong>Ganesh Murti Sthapana &amp; Lezim Dance</strong> 🥁💃
+              </div>
+              <div class="fest-item">
+                <span class="fest-time">🕕 6:00 PM – 7:00 PM</span>
+                <strong>Atharvashirsha Pathan</strong> 🪔📖
+              </div>
+              <div class="fest-item">
+                <span class="fest-time">🕡 6:30 PM Onwards</span>
+                <strong>Kids' Game Stalls</strong> 🤹‍♀️🎲
+              </div>
+            </td>
+          </tr>
+
+          <!-- Day 2 -->
+          <tr>
+            <td>
+              <span class="fest-day-badge">Day 2</span>
+              <span class="fest-date">15th Sept (Tue)</span>
+            </td>
+            <td>
+              <div class="fest-item">
+                <span class="fest-time">🕡 6:30 PM</span>
+                <strong>Musical Chairs</strong> 🎶🪑
+              </div>
+            </td>
+          </tr>
+
+          <!-- Day 3 -->
+          <tr>
+            <td>
+              <span class="fest-day-badge">Day 3</span>
+              <span class="fest-date">16th Sept (Wed)</span>
+            </td>
+            <td>
+              <div class="fest-item">
+                <span class="fest-time">🕡 6:30 PM</span>
+                <strong>Fun Games</strong> 🏃‍♂️🚴‍♀️
+                <div style="color:var(--ink-muted); font-size:14px; margin-top:2px;">
+                  (Lemon-Spoon, 3-Leg Race, Slow Cycling, Running &amp; Sack Race)
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <!-- Day 4 -->
+          <tr>
+            <td>
+              <span class="fest-day-badge">Day 4</span>
+              <span class="fest-date">17th Sept (Thu)</span>
+            </td>
+            <td>
+              <div class="fest-item">
+                <span class="fest-time">🕡 6:30 PM</span>
+                <strong>Housie Game</strong> 🎟️
+              </div>
+            </td>
+          </tr>
+
+          <!-- Day 5 -->
+          <tr>
+            <td>
+              <span class="fest-day-badge">Day 5</span>
+              <span class="fest-date">18th Sept (Fri)</span>
+            </td>
+            <td>
+              <div class="fest-item">
+                <span class="fest-time">🕡 6:30 PM</span>
+                <strong>Dance &amp; Talent Show</strong> 💃🎤✨ &amp; <strong>Community Food Stalls</strong> 🍲🍧
+              </div>
+            </td>
+          </tr>
+
+          <!-- Day 6 -->
+          <tr>
+            <td>
+              <span class="fest-day-badge">Day 6</span>
+              <span class="fest-date">19th Sept (Sat)</span>
+            </td>
+            <td>
+			   <div class="fest-item">
+                <span class="fest-time">🕚 10:00 AM</span>
+                <strong>Satyanarayan Puja</strong> 🙏🍽️
+              </div>
+              <div class="fest-item">
+                <span class="fest-time">🕚 11:30 AM</span>
+                <strong>Drawing / Art Competition &amp; Remaining Games</strong> 🎨🖍️
+              </div>
+              <div class="fest-item">
+                <span class="fest-time">🪔 Evening / TBD</span>
+                <strong>Satyanarayan Puja &amp; Mahaprasad</strong> 🙏🍽️
+              </div>
+            </td>
+          </tr>
+
+          <!-- Day 7 -->
+          <tr>
+            <td>
+              <span class="fest-day-badge">Day 7</span>
+              <span class="fest-date">20th Sept (Sun)</span>
+            </td>
+            <td>
+              <div class="fest-item">
+                <span class="fest-time">🕥 10:30 AM</span>
+                <strong>Bhajan &amp; Prize Distribution</strong> 🎵🏆
+              </div>
+              <div class="fest-item">
+                <span class="fest-time">🕓 4:00 PM</span>
+                <strong>Ganesh Visarjan Miravnuk</strong> 🌺🥁🙏
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="schedule-footer-note" style="text-align:center;">
+      ✨ Looking forward to active participation from all residents and kids! <b>Ganpati Bappa Morya! 🙏</b>
+    </div>
+  </div>
+</section>
+
 <!-- ================= REGISTRATIONS / EVENTS ================= -->
-<section class="section" id="events">
+<section class="section section--alt" id="events">
   <div class="wrap">
     <div class="section__head">
       <span class="eyebrow">Participation &amp; Bookings</span>
@@ -1301,7 +1537,7 @@
         </div>
         <div class="event-card__actions">
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSd5_hAIYATsaqJciVgfYKhvUhRq7kCDkT8LsEogGZr6N68ocQ/viewform" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Register for Sports Games</a>
-          <a href="#" class="btn btn--outline-gold" target="_blank" rel="noopener noreferrer">📋 View Registered Participants</a>
+          <a href="Sport_participant.pdf" class="btn btn--outline-gold" target="_blank" rel="noopener noreferrer">📋 View Registered Participants</a>
         </div>
       </div>
 
@@ -1353,7 +1589,7 @@
 </section>
 
 <!-- ================= WHATSAPP GROUPS (FULLY CLICKABLE CARDS) ================= -->
-<section class="section section--alt" id="whatsapp-groups">
+<section class="section" id="whatsapp-groups">
   <div class="wrap">
     <div class="section__head" id="direct-updates">
       <span class="eyebrow">Direct Updates</span>
@@ -1430,7 +1666,7 @@
 </section>
 
 <!-- ================= CONTRIBUTE (UPI PAYMENT) ================= -->
-<section class="section" id="contribute">
+<section class="section section--alt" id="contribute">
   <div class="wrap steps">
     <div>
       <span class="eyebrow">Support the Festival</span>
@@ -1469,7 +1705,7 @@
 </section>
 
 <!-- ================= CONTRIBUTIONS & TRANSPARENCY SECTION ================= -->
-<section class="section section--alt" id="contributors">
+<section class="section" id="contributors">
   <div class="wrap">
     <div class="section__head">
       <span class="eyebrow">Financial Transparency</span>
@@ -1519,7 +1755,7 @@
 </section>
 
 <!-- ================= ABOUT ================= -->
-<section class="section" id="about">
+<section class="section section--alt" id="about">
   <div class="wrap">
     <div class="section__head">
       <span class="eyebrow">Our Community</span>
@@ -1554,7 +1790,7 @@
 </section>
 
 <!-- ================= NOTICES ================= -->
-<section class="section section--alt" id="notices">
+<section class="section" id="notices">
   <div class="wrap">
     <div class="section__head">
       <span class="eyebrow">Society Board</span>
@@ -1591,7 +1827,7 @@
 </section>
 
 <!-- ================= CONTACT ================= -->
-<section class="section" id="contact">
+<section class="section section--alt" id="contact">
   <div class="wrap grid-2">
     <div>
       <span class="eyebrow">Helpdesk</span>
