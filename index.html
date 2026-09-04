@@ -488,7 +488,7 @@
   }
   .hero::before {
     content: "";
-    position: absolute; inset: 0;
+    position: absolute inset: 0;
     background: radial-gradient(circle at 50% 40%, rgba(201, 151, 40, 0.15), transparent 70%);
     pointer-events: none;
   }
@@ -731,6 +731,223 @@
     font-size: 13.5px;
     color: var(--ivory-soft);
     line-height: 1.5;
+  }
+
+  /* ---------- AARTI & PRASAD SCHEDULE MODAL & TABLE ---------- */
+  .schedule-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+  }
+  .schedule-modal.is-open {
+    display: flex;
+  }
+
+  .schedule-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(32, 7, 16, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  .schedule-modal__content {
+    position: relative;
+    width: 100%;
+    max-width: 940px;
+    max-height: 90vh;
+    background: var(--ivory-surface);
+    border-radius: var(--radius-md);
+    border: 2px solid var(--gold);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+  }
+
+  .schedule-modal__header {
+    background: var(--maroon);
+    color: #fff;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .schedule-modal__title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gold-bright);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .schedule-modal__close {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
+  .schedule-modal__close:hover {
+    background: var(--vermilion);
+  }
+
+  .schedule-modal__body {
+    padding: 20px;
+    overflow-y: auto;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .schedule-timing-pills {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 12px 0 16px;
+  }
+
+  .timing-pill {
+    flex: 1;
+    min-width: 240px;
+    background: var(--ivory-soft);
+    border: 1.5px solid var(--gold);
+    border-radius: 10px;
+    padding: 10px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .timing-pill strong {
+    color: var(--maroon);
+    font-size: 14.5px;
+  }
+  .timing-pill span {
+    font-family: var(--font-data);
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--vermilion);
+  }
+
+  /* Responsive Seva Table */
+  .schedule-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border: 1.5px solid var(--gold);
+    border-radius: 10px;
+    box-shadow: var(--shadow-soft);
+    margin-bottom: 16px;
+    background: #fff;
+  }
+
+  .seva-table {
+    width: 100%;
+    min-width: 680px;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13.5px;
+  }
+
+  .seva-table th, 
+  .seva-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(56, 14, 29, 0.1);
+    border-right: 1px solid rgba(56, 14, 29, 0.08);
+    vertical-align: middle;
+  }
+  .seva-table th:last-child, 
+  .seva-table td:last-child {
+    border-right: none;
+  }
+
+  .seva-table thead tr:first-child th {
+    background: var(--maroon);
+    color: var(--gold-bright);
+    font-family: var(--font-data);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-bottom: 1.5px solid var(--gold);
+  }
+
+  .seva-table thead tr:nth-child(2) th {
+    background: #300a17;
+    color: var(--ivory-soft);
+    font-family: var(--font-data);
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .seva-table tbody tr:nth-child(even) {
+    background: var(--ivory-surface);
+  }
+  .seva-table tbody tr:hover {
+    background: #fff8e8;
+  }
+
+  .seva-table .day-col {
+    font-family: var(--font-data);
+    font-weight: 700;
+    text-align: center;
+    color: var(--vermilion);
+    width: 45px;
+  }
+
+  .seva-table .date-col {
+    font-family: var(--font-data);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .seva-table .floor-badge {
+    display: inline-block;
+    background: rgba(201, 151, 40, 0.18);
+    color: var(--maroon-deep);
+    font-family: var(--font-data);
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .seva-table .flat-nums {
+    font-family: var(--font-data);
+    font-weight: 700;
+    color: var(--maroon);
+    font-size: 13px;
+  }
+
+  .schedule-footer-note {
+    font-size: 13px;
+    color: var(--ink-muted);
+    background: rgba(41, 87, 56, 0.08);
+    border-left: 3px solid var(--green);
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 680px) {
+    .schedule-modal { padding: 8px; }
+    .schedule-modal__content { max-height: 94vh; }
+    .schedule-modal__body { padding: 14px; }
   }
 
   /* ---------- NOTICES ---------- */
@@ -1069,7 +1286,7 @@
 
         <div class="event-card__actions">
           <a href="https://forms.gle/uV9ghvDBr4DfqBeM9" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Register Your Stall Now</a>
-          <a href="#" class="btn btn--outline-gold" target="_blank" rel="noopener noreferrer">📋 View Booked Stalls List</a>
+          <button type="button" class="btn btn--outline-gold" id="btnOpenStalls">📋 View Booked Stalls List (7)</button>
         </div>
       </div>
 
@@ -1087,11 +1304,12 @@
           <a href="#" class="btn btn--outline-gold" target="_blank" rel="noopener noreferrer">📋 View Registered Participants</a>
         </div>
       </div>
-<!-- Cultural Competitions -->
+
+      <!-- Cultural Competitions -->
       <div class="event-card">
         <span class="event-card__tag">Open Now</span>
         <h3>Cultural Competitions</h3>
-        <p>Dance, singing, drama, art, and stage performances for kids, teens, and adults during the evening cultural program.</p>
+        <p>Dance, singing, drama, and stage performances for kids, teens, and adults during the evening cultural program.</p>
         <div class="event-card__sub-box">
           <strong>Coordinators: Ruchi Kamra &amp; Jaya Udawat</strong>
           <p>Rehearsal timings, performance time limits, and audio track submission guidelines are managed here.</p>
@@ -1102,18 +1320,32 @@
         </div>
       </div>
 
+      <!-- Art & Drawing Event Tile -->
+      <div class="event-card">
+        <span class="event-card__tag">Open Now</span>
+        <h3>Art &amp; Drawing Competition</h3>
+        <p>Unleash imagination and colors! Organized across multiple age categories for our young budding artists and creative residents.</p>
+        <div class="event-card__sub-box">
+          <strong>Coordinators: Ruchi Kamra &amp; Jaya Udawat</strong>
+          <p>Categories: 4–6 yrs, 6–10 yrs, and 11+ yrs. Drawing sheets are provided; participants bring their favorite coloring kits.</p>
+        </div>
+        <div class="event-card__actions">
+          <a href="https://chat.whatsapp.com/J7IvSSRSfUUHLR5uIsDk5I?s=sw&p=a&ilr=0" class="btn btn--gold" target="_blank" rel="noopener noreferrer">Join Art WhatsApp Group</a>
+          <button type="button" class="btn btn--outline-gold" id="btnOpenArt">🎨 View Registered Participants (39)</button>
+        </div>
+      </div>
+
       <!-- Community Events -->
       <div class="event-card">
         <span class="event-card__tag">Open Now</span>
-        <h3>Pooja &amp; Mahaprasad</h3>
+        <h3>Daily Aarti &amp; Prasad</h3>
         <p>Morning &amp; Evening Aarti participation, Mahaprasad hosting, decoration volunteering, and daily festival coordination.</p>
         <div class="event-card__sub-box">
           <strong>Voluntary Coordination Team</strong>
-          <p>Sign up to assist with daily aarti rituals, flower setups, prasad distribution queues, and guest welcoming.</p>
+          <p>Sign up to assist with daily aarti rituals, flower setups, prasad distribution queues, and guest welcoming. Contact event coordinators.</p>
         </div>
         <div class="event-card__actions">
-          <a href="#contact" class="btn btn--gold">Coordinate via Committee</a>
-          <a href="#contributors" class="btn btn--outline-gold">📋 View Mahaprasad &amp; Volunteer List</a>
+          <button type="button" class="btn btn--gold" id="btnOpenSchedule">🪔 View Aarti &amp; Prasad Schedule</button>
         </div>
       </div>
     </div>
@@ -1388,6 +1620,287 @@
   </div>
 </footer>
 
+<!-- ================= DAILY AARTI & PRASAD MODAL ================= -->
+<div class="schedule-modal" id="scheduleModal" role="dialog" aria-modal="true" aria-labelledby="scheduleModalTitle" aria-hidden="true">
+  <div class="schedule-modal__backdrop" id="scheduleBackdrop"></div>
+  <div class="schedule-modal__content">
+    <div class="schedule-modal__header">
+      <h3 class="schedule-modal__title" id="scheduleModalTitle">🌺 Ganeshotsav 2026: Aarti &amp; Prasad Seva Schedule</h3>
+      <button class="schedule-modal__close" id="scheduleClose" aria-label="Close schedule">✕</button>
+    </div>
+    
+    <div class="schedule-modal__body">
+      <p style="margin:0 0 10px;">
+        To ensure seamless celebrations, the responsibility for the daily <b>Aarti, Puja, and Prasad</b> has been organized floor-wise as outlined below:
+      </p>
+
+      <div class="schedule-timing-pills">
+        <div class="timing-pill">
+          <strong>🌅 Morning Aarti</strong>
+          <span>08:30 AM</span>
+        </div>
+        <div class="timing-pill">
+          <strong>🌇 Evening Aarti</strong>
+          <span>08:00 PM</span>
+        </div>
+      </div>
+
+      <!-- Seva Schedule Table -->
+      <div class="schedule-table-container">
+        <table class="seva-table">
+          <thead>
+            <tr>
+              <th rowspan="2" class="day-col">Day</th>
+              <th rowspan="2">Date</th>
+              <th rowspan="2">Assigned Floors</th>
+              <th colspan="2" style="text-align:center; background:#471223;">🌅 Morning Seva</th>
+              <th colspan="2" style="text-align:center;">🌇 Evening Seva</th>
+            </tr>
+            <tr>
+              <th style="width:75px;">Flat</th>
+              <th>Name</th>
+              <th style="width:110px;">Flat</th>
+              <th>Name</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="day-col">1</td>
+              <td class="date-col">14/09/26 (Mon)</td>
+              <td><span class="floor-badge">1st – 4th Floor</span></td>
+              <td class="flat-nums">—</td>
+              <td><em>1st–4th Floor Seva</em></td>
+              <td class="flat-nums">105, 304, 205</td>
+              <td>Chitra aunty, Ramya Ganti, Shiveta Wali</td>
+            </tr>
+            <tr>
+              <td class="day-col">2</td>
+              <td class="date-col">15/09/26 (Tue)</td>
+              <td><span class="floor-badge">5th – 8th Floor</span></td>
+              <td class="flat-nums">—</td>
+              <td>Alisha Shinde</td>
+              <td class="flat-nums">505</td>
+              <td>Gungun</td>
+            </tr>
+            <tr>
+              <td class="day-col">3</td>
+              <td class="date-col">16/09/26 (Wed)</td>
+              <td><span class="floor-badge">9th – 12th Floor</span></td>
+              <td class="flat-nums">—</td>
+              <td>Manasi Kulkarni</td>
+              <td class="flat-nums">901, 903, 905, 1005, 1203</td>
+              <td>Sonal, Surbhi, Mitali, Bhawna, Manasi</td>
+            </tr>
+            <tr>
+              <td class="day-col">4</td>
+              <td class="date-col">17/09/26 (Thu)</td>
+              <td><span class="floor-badge">13th – 16th Floor</span></td>
+              <td class="flat-nums">—</td>
+              <td>Ruchi Kamra</td>
+              <td class="flat-nums">1605</td>
+              <td>Ashwini Mittal</td>
+            </tr>
+            <tr>
+              <td class="day-col">5</td>
+              <td class="date-col">18/09/26 (Fri)</td>
+              <td><span class="floor-badge">17th – 20th Floor</span></td>
+              <td class="flat-nums">—</td>
+              <td>Shilpa Mane</td>
+              <td class="flat-nums">1705</td>
+              <td>Pooja Damkondwar</td>
+            </tr>
+            <tr>
+              <td class="day-col">6</td>
+              <td class="date-col">19/09/26 (Sat)</td>
+              <td><span class="floor-badge">21st – 24th Floor</span></td>
+              <td class="flat-nums">—</td>
+              <td>Snehal Yadav</td>
+              <td class="flat-nums">2201, 2202, 2203, 2401</td>
+              <td>Alisha, Shubhangi, BK, Rohini</td>
+            </tr>
+            <tr>
+              <td class="day-col">7</td>
+              <td class="date-col">20/09/26 (Sun)</td>
+              <td><span class="floor-badge">25th – 29th Floor</span></td>
+              <td class="flat-nums">2801</td>
+              <td>Sukesh Shah, Jaya Udawat</td>
+              <td class="flat-nums">—</td>
+              <td><em>25th–29th Floor Seva</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="schedule-footer-note">
+        👉 <b>Note:</b> Residents are requested to coordinate with their assigned floor volunteers for puja preparation and prasad distribution. Scroll sideways on mobile if the complete table is not visible.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= STALLS BOOKING MODAL ================= -->
+<div class="schedule-modal" id="stallsModal" role="dialog" aria-modal="true" aria-labelledby="stallsModalTitle" aria-hidden="true">
+  <div class="schedule-modal__backdrop" id="stallsBackdrop"></div>
+  <div class="schedule-modal__content">
+    <div class="schedule-modal__header">
+      <h3 class="schedule-modal__title" id="stallsModalTitle">🎪 Stalls Registration: Booked Stalls List</h3>
+      <button class="schedule-modal__close" id="stallsClose" aria-label="Close modal">✕</button>
+    </div>
+    
+    <div class="schedule-modal__body">
+      <div class="schedule-timing-pills">
+        <div class="timing-pill">
+          <strong>Total Booked</strong>
+          <span>7 Stalls</span>
+        </div>
+        <div class="timing-pill">
+          <strong>Allocation</strong>
+          <span style="font-size:16px;">First-Come Basis</span>
+        </div>
+      </div>
+
+      <div class="schedule-table-container">
+        <table class="seva-table">
+          <thead>
+            <tr>
+              <th style="width:50px;" class="day-col">#</th>
+              <th>Stall Holder / Team Name</th>
+              <th style="width:160px; text-align:center;">Category / Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Food Stalls -->
+            <tr style="background:#300a17; color:var(--gold-bright);">
+              <td colspan="3" style="font-family:var(--font-data); font-size:13.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding:8px 12px;">
+                🍲 Food Stalls (18 September 2026) — 4 Booked
+              </td>
+            </tr>
+            <tr><td class="day-col">1</td><td>Rajani Gupta</td><td style="text-align:center;"><span class="floor-badge">Food Stall</span></td></tr>
+            <tr><td class="day-col">2</td><td>Jaynaa Talreja</td><td style="text-align:center;"><span class="floor-badge">Food Stall</span></td></tr>
+            <tr><td class="day-col">3</td><td>Kritika Ranjan</td><td style="text-align:center;"><span class="floor-badge">Food Stall</span></td></tr>
+            <tr><td class="day-col">4</td><td>Anvi Waghchaure</td><td style="text-align:center;"><span class="floor-badge">Food Stall</span></td></tr>
+
+            <!-- Game Stalls -->
+            <tr style="background:#300a17; color:var(--gold-bright);">
+              <td colspan="3" style="font-family:var(--font-data); font-size:13.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding:8px 12px;">
+                🤹‍♀️ Kids' Game Stalls (14 September 2026) — 3 Booked
+              </td>
+            </tr>
+            <tr><td class="day-col">1</td><td>Doulani Bros</td><td style="text-align:center;"><span class="floor-badge" style="background:rgba(41,87,56,0.18); color:var(--green);">Game Stall</span></td></tr>
+            <tr><td class="day-col">2</td><td>Vanya Ranjan</td><td style="text-align:center;"><span class="floor-badge" style="background:rgba(41,87,56,0.18); color:var(--green);">Game Stall</span></td></tr>
+            <tr><td class="day-col">3</td><td>Rajveer &amp; Om</td><td style="text-align:center;"><span class="floor-badge" style="background:rgba(41,87,56,0.18); color:var(--green);">Game Stall</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="schedule-footer-note">
+        🎪 <b>Note:</b> Limited stall slots remain. If you would like to book a food or game stall, please submit the registration form above.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= ART & DRAWING PARTICIPANTS MODAL ================= -->
+<div class="schedule-modal" id="artModal" role="dialog" aria-modal="true" aria-labelledby="artModalTitle" aria-hidden="true">
+  <div class="schedule-modal__backdrop" id="artBackdrop"></div>
+  <div class="schedule-modal__content">
+    <div class="schedule-modal__header">
+      <h3 class="schedule-modal__title" id="artModalTitle">🎨 Art &amp; Drawing: Registered Participants</h3>
+      <button class="schedule-modal__close" id="artClose" aria-label="Close modal">✕</button>
+    </div>
+    
+    <div class="schedule-modal__body">
+      <div class="schedule-timing-pills">
+        <div class="timing-pill">
+          <strong>Total Enrolled</strong>
+          <span>39 Participants</span>
+        </div>
+        <div class="timing-pill">
+          <strong>Categories</strong>
+          <span style="font-size:16px;">3 Age Brackets</span>
+        </div>
+      </div>
+
+      <div class="schedule-table-container">
+        <table class="seva-table">
+          <thead>
+            <tr>
+              <th style="width:50px;" class="day-col">#</th>
+              <th>Child / Participant Name</th>
+              <th style="width:90px; text-align:center;">Age</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Category 1 -->
+            <tr style="background:#300a17; color:var(--gold-bright);">
+              <td colspan="3" style="font-family:var(--font-data); font-size:13.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding:8px 12px;">
+                🎨 Category 1: Age Group (4 – 6 Years) — 20 Participants
+              </td>
+            </tr>
+            <tr><td class="day-col">1</td><td>Sierra Kamra</td><td style="text-align:center;" class="flat-nums">5 yrs</td></tr>
+            <tr><td class="day-col">2</td><td>Tanishi Udavat</td><td style="text-align:center;" class="flat-nums">5 yrs</td></tr>
+            <tr><td class="day-col">3</td><td>Amogh</td><td style="text-align:center;" class="flat-nums">5 yrs</td></tr>
+            <tr><td class="day-col">4</td><td>Prissha Bonde</td><td style="text-align:center;" class="flat-nums">4 yrs</td></tr>
+            <tr><td class="day-col">5</td><td>Saisha Devatwal</td><td style="text-align:center;" class="flat-nums">4 yrs</td></tr>
+            <tr><td class="day-col">6</td><td>Virika Mukherjee</td><td style="text-align:center;" class="flat-nums">4 yrs</td></tr>
+            <tr><td class="day-col">7</td><td>Yoshika Mukherjee</td><td style="text-align:center;" class="flat-nums">4 yrs</td></tr>
+            <tr><td class="day-col">8</td><td>Reyansh Chopra</td><td style="text-align:center;" class="flat-nums">5 yrs</td></tr>
+            <tr><td class="day-col">9</td><td>Kiyara Chopra</td><td style="text-align:center;" class="flat-nums">5 yrs</td></tr>
+            <tr><td class="day-col">10</td><td>Yug Shah</td><td style="text-align:center;" class="flat-nums">6 yrs</td></tr>
+            <tr><td class="day-col">11</td><td>Meera Sapkal</td><td style="text-align:center;" class="flat-nums">5 yrs</td></tr>
+            <tr><td class="day-col">12</td><td>Aniruddha Phadke</td><td style="text-align:center;" class="flat-nums">3 yrs</td></tr>
+            <tr><td class="day-col">13</td><td>Avani Phadke</td><td style="text-align:center;" class="flat-nums">6 yrs</td></tr>
+            <tr><td class="day-col">14</td><td>Aarohi Moghe</td><td style="text-align:center;" class="flat-nums">5 yrs</td></tr>
+            <tr><td class="day-col">15</td><td>Ruhika Sivasundar</td><td style="text-align:center;" class="flat-nums">6 yrs</td></tr>
+            <tr><td class="day-col">16</td><td>Veera Shinde</td><td style="text-align:center;" class="flat-nums">5 yrs</td></tr>
+            <tr><td class="day-col">17</td><td>Siddh Jain</td><td style="text-align:center;" class="flat-nums">6 yrs</td></tr>
+            <tr><td class="day-col">18</td><td>Arjan Arora</td><td style="text-align:center;" class="flat-nums">4 yrs</td></tr>
+            <tr><td class="day-col">19</td><td>Vanya</td><td style="text-align:center;" class="flat-nums">6 yrs</td></tr>
+            <tr><td class="day-col">20</td><td>Shlok Mulay</td><td style="text-align:center;" class="flat-nums">5 yrs</td></tr>
+
+            <!-- Category 2 -->
+            <tr style="background:#300a17; color:var(--gold-bright);">
+              <td colspan="3" style="font-family:var(--font-data); font-size:13.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding:8px 12px;">
+                🖌️ Category 2: Age Group (6 – 10 Years) — 11 Participants
+              </td>
+            </tr>
+            <tr><td class="day-col">1</td><td>Dhruvi</td><td style="text-align:center;" class="flat-nums">10 yrs</td></tr>
+            <tr><td class="day-col">2</td><td>Manit Singh</td><td style="text-align:center;" class="flat-nums">9 yrs</td></tr>
+            <tr><td class="day-col">3</td><td>Shaurya Yadav</td><td style="text-align:center;" class="flat-nums">9 yrs</td></tr>
+            <tr><td class="day-col">4</td><td>Arya Yadav</td><td style="text-align:center;" class="flat-nums">9 yrs</td></tr>
+            <tr><td class="day-col">5</td><td>Rajveer Shinde</td><td style="text-align:center;" class="flat-nums">10 yrs</td></tr>
+            <tr><td class="day-col">6</td><td>Kanishk Mishra</td><td style="text-align:center;" class="flat-nums">10 yrs</td></tr>
+            <tr><td class="day-col">7</td><td>Jaswitha Valluri</td><td style="text-align:center;" class="flat-nums">9 yrs</td></tr>
+            <tr><td class="day-col">8</td><td>Kartik Mittal</td><td style="text-align:center;" class="flat-nums">7 yrs</td></tr>
+            <tr><td class="day-col">9</td><td>Yuvay T Doulani</td><td style="text-align:center;" class="flat-nums">8 yrs</td></tr>
+            <tr><td class="day-col">10</td><td>Yuv T Doulani</td><td style="text-align:center;" class="flat-nums">7 yrs</td></tr>
+            <tr><td class="day-col">11</td><td>Riya</td><td style="text-align:center;" class="flat-nums">8 yrs</td></tr>
+
+            <!-- Category 3 -->
+            <tr style="background:#300a17; color:var(--gold-bright);">
+              <td colspan="3" style="font-family:var(--font-data); font-size:13.5px; font-weight:800; letter-spacing:0.06em; text-transform:uppercase; padding:8px 12px;">
+                ✨ Category 3: Age Group (11 Years Onwards) — 8 Participants
+              </td>
+            </tr>
+            <tr><td class="day-col">1</td><td>Kashvee</td><td style="text-align:center;" class="flat-nums">14 yrs</td></tr>
+            <tr><td class="day-col">2</td><td>Manini Singh</td><td style="text-align:center;" class="flat-nums">14 yrs</td></tr>
+            <tr><td class="day-col">3</td><td>Aarav Moghe</td><td style="text-align:center;" class="flat-nums">11 yrs</td></tr>
+            <tr><td class="day-col">4</td><td>Om Mulay</td><td style="text-align:center;" class="flat-nums">11 yrs</td></tr>
+            <tr><td class="day-col">5</td><td>Rishi Udavat</td><td style="text-align:center;" class="flat-nums">14 yrs</td></tr>
+            <tr><td class="day-col">6</td><td>Anwita Saxena</td><td style="text-align:center;" class="flat-nums">13 yrs</td></tr>
+            <tr><td class="day-col">7</td><td>Lavith Valluri</td><td style="text-align:center;" class="flat-nums">11 yrs</td></tr>
+            <tr><td class="day-col">8</td><td>Poonam Srivatsav</td><td style="text-align:center;" class="flat-nums">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="schedule-footer-note">
+        🎨 <b>Materials Note:</b> Drawing sheets will be provided at the venue. Participants are requested to carry their own colors and stationery kits.
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- ================= FLOATING SPEED-DIAL WHATSAPP NAVIGATION ================= -->
 <div class="fab-container" id="fabContainer">
   <div class="fab-menu" id="fabMenu" role="menu" aria-label="WhatsApp Group Links">
@@ -1464,6 +1977,99 @@
 </div>
 
 <script>
+  // Aarti & Prasad Schedule Modal Logic
+  const btnOpenSchedule = document.getElementById('btnOpenSchedule');
+  const scheduleModal = document.getElementById('scheduleModal');
+  const scheduleClose = document.getElementById('scheduleClose');
+  const scheduleBackdrop = document.getElementById('scheduleBackdrop');
+
+  function openSchedule() {
+    if (scheduleModal) {
+      scheduleModal.classList.add('is-open');
+      scheduleModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeSchedule() {
+    if (scheduleModal) {
+      scheduleModal.classList.remove('is-open');
+      scheduleModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (btnOpenSchedule) btnOpenSchedule.addEventListener('click', openSchedule);
+  if (scheduleClose) scheduleClose.addEventListener('click', closeSchedule);
+  if (scheduleBackdrop) scheduleBackdrop.addEventListener('click', closeSchedule);
+
+  // Stalls Booking Modal Logic
+  const btnOpenStalls = document.getElementById('btnOpenStalls');
+  const stallsModal = document.getElementById('stallsModal');
+  const stallsClose = document.getElementById('stallsClose');
+  const stallsBackdrop = document.getElementById('stallsBackdrop');
+
+  function openStalls() {
+    if (stallsModal) {
+      stallsModal.classList.add('is-open');
+      stallsModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeStalls() {
+    if (stallsModal) {
+      stallsModal.classList.remove('is-open');
+      stallsModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (btnOpenStalls) btnOpenStalls.addEventListener('click', openStalls);
+  if (stallsClose) stallsClose.addEventListener('click', closeStalls);
+  if (stallsBackdrop) stallsBackdrop.addEventListener('click', closeStalls);
+
+  // Art & Drawing Participants Modal Logic
+  const btnOpenArt = document.getElementById('btnOpenArt');
+  const artModal = document.getElementById('artModal');
+  const artClose = document.getElementById('artClose');
+  const artBackdrop = document.getElementById('artBackdrop');
+
+  function openArt() {
+    if (artModal) {
+      artModal.classList.add('is-open');
+      artModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeArt() {
+    if (artModal) {
+      artModal.classList.remove('is-open');
+      artModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+  }
+
+  if (btnOpenArt) btnOpenArt.addEventListener('click', openArt);
+  if (artClose) artClose.addEventListener('click', closeArt);
+  if (artBackdrop) artBackdrop.addEventListener('click', closeArt);
+
+  // Close modals on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (scheduleModal && scheduleModal.classList.contains('is-open')) {
+        closeSchedule();
+      }
+      if (stallsModal && stallsModal.classList.contains('is-open')) {
+        closeStalls();
+      }
+      if (artModal && artModal.classList.contains('is-open')) {
+        closeArt();
+      }
+    }
+  });
+
   // Mobile Navigation Toggle
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
